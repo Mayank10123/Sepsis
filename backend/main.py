@@ -33,14 +33,14 @@ async def lifespan(app: FastAPI):
     """Initialize app on startup, cleanup on shutdown"""
     
     # Startup
-    print("🚀 Starting SepsisGuard API")
+    print("Starting SepsisGuard API")
     mongo_client = None
     
     try:
         # Connect to MongoDB
         mongo_client = AsyncIOMotorClient(os.getenv("MONGODB_URI"), serverSelectionTimeoutMS=5000)
         AppState.db = mongo_client.sepsisguard
-        print("✅ Connected to MongoDB Atlas")
+        print("Connected to MongoDB Atlas")
         
         # Initialize test data
         try:
@@ -90,7 +90,7 @@ async def lifespan(app: FastAPI):
             await patients_collection.delete_many({'_id': {'$in': ['PAT001', 'PAT002', 'PAT003']}})
             # Insert test patients
             await patients_collection.insert_many(test_patients)
-            print("✅ Test patients initialized: PAT001, PAT002, PAT003")
+            print("Test patients initialized: PAT001, PAT002, PAT003")
         except Exception as e:
             print(f"⚠️ Test data initialization: {str(e)}")
             
@@ -101,7 +101,7 @@ async def lifespan(app: FastAPI):
     try:
         # Initialize Groq client
         AppState.groq_client = Groq(api_key=os.getenv("GROQ_API_KEY", "sk_test"))
-        print("✅ Groq.ai client initialized")
+        print("Groq.ai client initialized")
     except Exception as e:
         print(f"⚠️ Groq.ai initialization failed: {str(e)}")
     
@@ -109,7 +109,7 @@ async def lifespan(app: FastAPI):
         # Initialize SepsisRiskAgent
         if AppState.groq_client:
             AppState.sepsis_agent = SepsisRiskAgent(AppState.groq_client)
-            print("✅ SepsisRiskAgent initialized")
+            print("SepsisRiskAgent initialized")
         else:
             print("⚠️ SepsisRiskAgent skipped (no Groq client)")
     except Exception as e:
@@ -119,7 +119,7 @@ async def lifespan(app: FastAPI):
         # Initialize alert engine
         if AppState.db is not None:
             AppState.alert_engine = AlertEngine(AppState.db)
-            print("✅ Alert engine initialized")
+            print("Alert engine initialized")
         else:
             print("⚠️ Alert engine skipped (no database)")
     except Exception as e:
@@ -136,16 +136,16 @@ async def lifespan(app: FastAPI):
                     AppState.groq_client,
                     AppState.alert_engine
                 ))
-            print(f"✅ Started monitoring {len(active_patients)} patients")
+            print(f"Started monitoring {len(active_patients)} patients")
     except Exception as e:
         print(f"⚠️ Patient monitoring setup failed: {str(e)}")
     
-    print("✅ API is ready for requests")
+    print("API is ready for requests")
     
     yield
     
     # Shutdown
-    print("🛑 Shutting down SepsisGuard API")
+    print("Shutting down SepsisGuard API")
     if mongo_client:
         mongo_client.close()
 
@@ -359,7 +359,7 @@ async def analyze_patient_vitals(patient_id: str, vitals: dict, db, ai_agent):
                 "timestamp": datetime.utcnow().isoformat()
             }
             await db.alerts.insert_one(alert)
-            print(f"🚨 Alert generated for patient {patient_id}: {risk_analysis['risk_level']}")
+            print(f"Alert generated for patient {patient_id}: {risk_analysis['risk_level']}")
         
     except Exception as e:
         print(f"Error in analyze_patient_vitals: {e}")
@@ -430,7 +430,7 @@ async def predict_deterioration(patient_id: str, token: str = Depends(verify_tok
                 "timestamp": datetime.utcnow().isoformat()
             }
             await AppState.db.alerts.insert_one(alert)
-            print(f"🚨 Alert generated for patient {patient_id}: {risk_analysis['risk_level']}")
+            print(f"Alert generated for patient {patient_id}: {risk_analysis['risk_level']}")
         
         return {
             "patient_id": patient_id,
