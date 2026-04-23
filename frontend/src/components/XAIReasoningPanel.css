@@ -1,0 +1,32 @@
+/* ===== XAI Reasoning Panel CSS ===== */
+
+.xai-panel { padding: 24px; background: white; }
+.xai-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.xai-title { display: flex; align-items: center; gap: 8px; }
+.xai-title .material-symbols-outlined { color: var(--sg-primary); }
+.xai-title h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.xai-badge { font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 6px; background: var(--sg-primary-fixed); color: var(--sg-primary); }
+
+.xai-intro { font-size: 12px; color: var(--sg-on-surface-variant); font-weight: 600; margin-bottom: 20px; }
+
+.contribution-list { display: flex; flex-direction: column; gap: 16px; }
+.contribution-item { display: flex; flex-direction: column; gap: 6px; }
+
+.item-meta { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; }
+.f-name { color: var(--sg-on-surface); }
+.f-val { font-family: var(--sg-font-headline); }
+
+.impact-bar-bg { height: 6px; background: var(--sg-surface-container-low); border-radius: var(--sg-radius-full); overflow: hidden; }
+.impact-bar-fill { height: 100%; border-radius: var(--sg-radius-full); }
+
+.impact-bar-fill.negative { background: var(--sg-error); }
+.impact-bar-fill.positive { background: var(--sg-stable); }
+.impact-bar-fill.neutral { background: var(--sg-outline); }
+
+.f-val.negative { color: var(--sg-error); }
+.f-val.positive { color: var(--sg-stable); }
+
+.xai-footer { margin-top: 24px; display: flex; gap: 10px; align-items: flex-start; padding-top: 16px; border-top: 1px solid var(--sg-surface-container); }
+.xai-footer .material-symbols-outlined { font-size: 18px; color: var(--sg-stable); }
+.xai-footer p { font-size: 11px; color: var(--sg-outline); font-weight: 600; line-height: 1.4; }

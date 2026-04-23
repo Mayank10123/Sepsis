@@ -1,0 +1,29 @@
+/* ===== Patient Healing Center CSS ===== */
+
+.healing-center { padding: 24px; background: white; border: none; }
+.healing-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.healing-header h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; color: var(--sg-primary); }
+
+.healing-nav { display: flex; gap: 4px; margin-bottom: 24px; background: var(--sg-surface-container-low); padding: 4px; border-radius: var(--sg-radius-full); }
+.healing-nav button { flex: 1; border: none; background: transparent; padding: 10px; font-size: 11px; font-weight: 700; border-radius: var(--sg-radius-full); cursor: pointer; color: var(--sg-outline); transition: all 0.2s; }
+.healing-nav button.active { background: white; color: #10b981; box-shadow: var(--sg-shadow-sm); }
+
+.healing-content { min-height: 160px; }
+.healing-view { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+.milestone-stars { display: flex; gap: 8px; margin-bottom: 12px; }
+.star { color: var(--sg-outline-variant); font-size: 32px; }
+.star.filled { color: #f59e0b; }
+
+.nutri-pic { width: 100px; height: 100px; background: var(--sg-surface-container-high); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; color: var(--sg-outline); cursor: pointer; }
+.nutri-pic .material-symbols-outlined { font-size: 32px; }
+.nutri-pic p { font-size: 10px; font-weight: 800; }
+.nutri-feedback { font-size: 12px; color: var(--sg-on-surface-variant); }
+
+.audio-control { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.ripple-icon { font-size: 48px; color: #10b981; animation: sg-pulse 2s infinite; }
+
+.why-card { display: flex; gap: 16px; align-items: center; text-align: left; padding: 16px; background: var(--sg-risk-low-bg); border-radius: var(--sg-radius-lg); width: 100%; }
+.pill-icon { width: 44px; height: 44px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--sg-primary); }
+.why-info h4 { font-size: 14px; margin-bottom: 4px; }
+.why-info p { font-size: 12px; color: var(--sg-on-surface-variant); }

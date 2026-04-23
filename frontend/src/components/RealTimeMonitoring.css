@@ -1,0 +1,472 @@
+.realtime-monitoring {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+}
+
+/* Header */
+.monitoring-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.monitoring-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.monitoring-stats {
+  display: flex;
+  gap: 24px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.alert-stat .stat-value {
+  color: #FF1744;
+}
+
+/* Alerts Banner */
+.alerts-banner {
+  background: linear-gradient(135deg, rgba(255, 23, 68, 0.1), rgba(255, 152, 0, 0.1));
+  border: 2px solid #FF9100;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  background: white;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.alert-warning {
+  border-left: 4px solid #FF9100;
+}
+
+.alert-critical {
+  border-left: 4px solid #FF1744;
+  background: rgba(255, 23, 68, 0.05);
+}
+
+.alert-icon {
+  font-size: 16px;
+}
+
+.alert-action {
+  margin-left: auto;
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.alert-action:hover {
+  background: #764ba2;
+  transform: translateY(-1px);
+}
+
+/* Monitoring Grid */
+.monitoring-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.patient-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  border-left: 5px solid #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.patient-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.patient-card.active {
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef9 100%);
+}
+
+/* Risk Badge */
+.risk-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Patient Header */
+.patient-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.patient-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.patient-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.patient-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Quick Vitals */
+.quick-vitals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.vital-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(102, 126, 234, 0.05);
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.patient-card:hover .vital-item {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.vital-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.vital-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.vital-unit {
+  font-size: 10px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* Trend Indicator */
+.trend-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #2e7d32;
+}
+
+.trend-icon {
+  font-size: 14px;
+}
+
+/* Detailed View */
+.detailed-view {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detailed-header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detailed-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.detailed-content {
+  padding: 24px;
+}
+
+/* Vitals Section */
+.vitals-section h4 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.vital-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef9 100%);
+  padding: 16px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  transition: all 0.2s;
+}
+
+.vital-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.vital-chart {
+  height: 60px;
+  background: white;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4px;
+}
+
+.chart-bar {
+  width: 20px;
+  background: linear-gradient(180deg, #667eea, #764ba2);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.vital-card span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.action-btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.action-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.action-btn.secondary {
+  background: #f0f0f0;
+  color: #667eea;
+  border: 1px solid #667eea;
+}
+
+.action-btn.secondary:hover {
+  background: #e8eaf6;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .monitoring-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .vitals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .realtime-monitoring {
+    padding: 16px;
+  }
+
+  .monitoring-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .monitoring-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vitals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .realtime-monitoring {
+    padding: 12px;
+    margin: 12px 0;
+  }
+
+  .monitoring-header h2 {
+    font-size: 18px;
+  }
+
+  .monitoring-stats {
+    gap: 16px;
+  }
+
+  .quick-vitals {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .vital-item {
+    padding: 8px;
+  }
+
+  .patient-card {
+    padding: 12px;
+  }
+
+  .vitals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailed-header {
+    padding: 14px;
+  }
+
+  .detailed-content {
+    padding: 14px;
+  }
+}

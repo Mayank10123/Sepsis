@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | SepsisGuard Live</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary-fixed-variant": "#004491",
+                "inverse-primary": "#acc7ff",
+                "surface-container-highest": "#e1e3e4",
+                "on-primary-container": "#bbd0ff",
+                "surface-container": "#eceeef",
+                "on-surface": "#191c1d",
+                "surface-variant": "#e1e3e4",
+                "surface-dim": "#d8dadb",
+                "surface-container-high": "#e6e8e9",
+                "outline": "#727784",
+                "error": "#ba1a1a",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#9df898",
+                "surface-container-lowest": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed-variant": "#004f4f",
+                "surface-bright": "#f8fafb",
+                "secondary-fixed-dim": "#76d6d5",
+                "background": "#f8fafb",
+                "on-tertiary-fixed": "#002204",
+                "primary-container": "#0056b3",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#005312",
+                "on-secondary-container": "#006e6e",
+                "secondary": "#006a6a",
+                "inverse-on-surface": "#eff1f2",
+                "outline-variant": "#c2c6d4",
+                "on-surface-variant": "#424752",
+                "secondary-fixed": "#93f2f2",
+                "on-background": "#191c1d",
+                "surface-container-low": "#f2f4f5",
+                "tertiary-container": "#04681b",
+                "error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#82db7e",
+                "primary-fixed": "#d7e2ff",
+                "secondary-container": "#90efef",
+                "surface": "#f8fafb",
+                "on-secondary-fixed": "#002020",
+                "on-tertiary-container": "#8ce587",
+                "on-secondary": "#ffffff",
+                "tertiary": "#004d10",
+                "surface-tint": "#115cb9",
+                "inverse-surface": "#2e3132",
+                "primary": "#003f87",
+                "primary-fixed-dim": "#acc7ff",
+                "on-primary-fixed": "#001a40",
+                "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen overflow-hidden">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="hidden md:flex flex-col h-screen w-64 bg-slate-100 dark:bg-slate-950 p-4 space-y-2 shrink-0">
+<div class="mb-8 px-2">
+<span class="text-lg font-black text-blue-900 dark:text-blue-100 tracking-tight">SepsisGuard Live</span>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-all duration-200 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-all duration-200 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                My Patients
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-all duration-200 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Reports
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-all duration-200 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+                Alerts
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-all duration-200 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                Resources
+            </a>
+</nav>
+<div class="pt-4 mt-4 border-t border-outline-variant/10 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-blue-900/40 text-blue-800 dark:text-blue-100 rounded-lg shadow-sm font-bold scale-95 duration-100 font-manrope text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-all duration-200 font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+</div>
+<div class="mt-8 px-4 py-4 bg-slate-50 dark:bg-slate-900 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male doctor in a white clinical coat with a kind, authoritative expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHRtjUSMrLWXOtNaZxHkqyk1o_RLMFmfgfMcvBzzd6A3hwR8uJCJJqiKRAtC0SVEYQp3sFFfuEa6BLBh0ENSqCvm3eLqnnt5w-Dw5a7Tf5MuIllBX4iRr0tQ4EWs5jWSw-vxKoWQxB6UKQQ5jG-po2_uUq0iOwdgzOKSKaaS9NMSxmTSlQ8FkjmECIJ7Fwjy2mp3Vq5jsKYlWCVxR9NRb_jplBByrWjj9iYwLYOoQg70AxEXPvy2cZ33GDFwBrY8kIoLkDWXMOFLk"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-blue-900 dark:text-blue-100 truncate">Dr. Clinical Sentinel</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider">ICU Department</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar (Authority Source: JSON) -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl flex justify-between items-center px-6 py-3 md:relative md:bg-transparent">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-blue-900">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-xl font-bold tracking-tight text-blue-900 dark:text-blue-100 font-headline">Settings</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-1.5 gap-2 group transition-all focus-within:ring-2 ring-primary/20">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary" data-icon="search">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 w-48 text-on-surface" placeholder="Search parameters..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">
+<span class="material-symbols-outlined text-blue-900 dark:text-blue-200" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">
+<span class="material-symbols-outlined text-blue-900 dark:text-blue-200" data-icon="person">person</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 md:p-10 mt-16 md:mt-0">
+<div class="max-w-5xl mx-auto space-y-10 pb-20">
+<!-- Profile Section: Bento-Style Asymmetry -->
+<section>
+<h3 class="text-2xl font-extrabold text-on-surface mb-6 flex items-center gap-2 font-headline">
+<span class="w-8 h-1 bg-primary rounded-full"></span>
+                        Clinical Profile
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Profile Card -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl p-6 flex flex-col items-center text-center">
+<div class="relative group cursor-pointer mb-4">
+<div class="w-32 h-32 rounded-full overflow-hidden ring-4 ring-surface-container shadow-xl">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Professional medical professional headshot with soft studio lighting and a clean neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvf348L-sL5sXpUhvbnEYvScZ-Lz600UG2tAzhpPJEXVlqj8vAYrGFd8-aD51CafGwC2aWHT9KcFu1uE6F0AUI5oUAvQPeSn5FG5eScARjhERjzzjgq6GPvZxZOQuFHGJnlKVQy50rnKbBwDB9KOxfhjxUmja465IUsDD3fmXkUlp7iozsrfBzkawaaMZWTE7StjZ6hZr53H5OYGge6G_DZd5UO5Pfn6aH_WpDsneixLa3ptym9oKh7Kk7rP4WkhUbuZaN8EhmyDQ"/>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-sm" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+<h4 class="text-xl font-bold font-headline">Dr. Clinical Sentinel</h4>
+<p class="text-on-surface-variant text-sm font-medium">Chief Medical Officer • ICU</p>
+<div class="mt-4 flex gap-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase">Active Duty</span>
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase">Level 4 Clearance</span>
+</div>
+</div>
+<!-- Info Inputs -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Full Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-1 ring-primary/40" type="text" value="Dr. Clinical Sentinel"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Credentials</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-1 ring-primary/40" type="text" value="MD, PhD, FCCM"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Hospital ID</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-1 ring-primary/40" type="text" value="SG-9920-SENT"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Specialization</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-1 ring-primary/40">
+<option>Intensive Care Medicine</option>
+<option>Emergency Medicine</option>
+<option>Internal Medicine</option>
+</select>
+</div>
+<div class="md:col-span-2 flex justify-end">
+<button class="px-6 py-2.5 bg-gradient-to-r from-primary to-primary-container text-white rounded-xl font-semibold text-sm shadow-md hover:opacity-90 transition-opacity">
+                                    Update Profile
+                                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Notification Preferences: Specialized Medical Controls -->
+<section>
+<h3 class="text-2xl font-extrabold text-on-surface mb-6 flex items-center gap-2 font-headline">
+<span class="w-8 h-1 bg-secondary rounded-full"></span>
+                        Clinical Alert Thresholds
+                    </h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10">
+<p class="text-sm text-on-surface-variant">Configure when and how you receive critical sepsis markers. Thresholds are calibrated for adult ICU standards by default.</p>
+</div>
+<div class="p-6 space-y-8">
+<!-- Threshold Row 1 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<div class="col-span-1">
+<h5 class="font-bold text-on-surface">Lactate Levels</h5>
+<p class="text-xs text-on-surface-variant">Critical marker for tissue hypoxia</p>
+</div>
+<div class="col-span-2 flex items-center gap-6">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full relative">
+<div class="absolute left-0 top-0 h-full bg-error rounded-full" style="width: 70%"></div>
+<div class="absolute left-[70%] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-error rounded-full shadow-lg cursor-pointer"></div>
+</div>
+<span class="text-sm font-bold w-12 text-error">&gt; 2.0</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">mmol/L</span>
+</div>
+</div>
+<!-- Threshold Row 2 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<div class="col-span-1">
+<h5 class="font-bold text-on-surface">MAP (Mean Arterial Pressure)</h5>
+<p class="text-xs text-on-surface-variant">Indicator of organ perfusion</p>
+</div>
+<div class="col-span-2 flex items-center gap-6">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full relative">
+<div class="absolute left-0 top-0 h-full bg-secondary rounded-full" style="width: 45%"></div>
+<div class="absolute left-[45%] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-secondary rounded-full shadow-lg cursor-pointer"></div>
+</div>
+<span class="text-sm font-bold w-12 text-secondary">&lt; 65</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">mmHg</span>
+</div>
+</div>
+<!-- Channel Preferences -->
+<div class="pt-6 border-t border-outline-variant/10 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-4 bg-surface-container-lowest rounded-xl flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="smartphone">smartphone</span>
+<div>
+<p class="text-sm font-bold">Mobile Push</p>
+<p class="text-[10px] text-on-surface-variant">Real-time bedside alerts</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="watch">watch</span>
+<div>
+<p class="text-sm font-bold">Haptic Wearable</p>
+<p class="text-[10px] text-on-surface-variant">Smartwatch vibration</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative cursor-pointer">
+<div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+<div>
+<p class="text-sm font-bold">Central Hub</p>
+<p class="text-[10px] text-on-surface-variant">Nurse station display</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Section: High-End Visuals -->
+<section>
+<h3 class="text-2xl font-extrabold text-on-surface mb-6 flex items-center gap-2 font-headline">
+<span class="w-8 h-1 bg-error rounded-full"></span>
+                        Security &amp; Authentication
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Biometrics -->
+<div class="bg-gradient-to-br from-inverse-surface to-slate-800 text-white rounded-2xl p-8 relative overflow-hidden group">
+<div class="relative z-10 flex flex-col h-full">
+<div class="mb-8">
+<span class="material-symbols-outlined text-4xl text-primary-fixed" data-icon="fingerprint">fingerprint</span>
+</div>
+<h4 class="text-xl font-bold font-headline mb-2">Biometric Verification</h4>
+<p class="text-slate-400 text-sm mb-8">Enable FaceID or Fingerprint scan for rapid patient file decryption and prescription signing.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs font-bold tracking-widest text-tertiary-fixed">VERIFIED</span>
+<button class="text-xs font-bold bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition-colors">Manage Biometrics</button>
+</div>
+</div>
+<!-- Decorative background shape -->
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-all duration-700"></div>
+</div>
+<!-- Credentials Change -->
+<div class="bg-surface-container-low rounded-2xl p-8">
+<h4 class="text-xl font-bold font-headline mb-6">Password Policy</h4>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase">Current Password</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-1 ring-error/40" type="password" value="********"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase">New Password</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-1 ring-error/40" placeholder="Min 12 characters" type="password"/>
+</div>
+<button class="w-full mt-4 py-3 bg-inverse-surface text-white rounded-xl font-semibold text-sm hover:bg-on-surface transition-colors">
+                                    Securely Update Password
+                                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Audit Log Section: Tonal depth list -->
+<section>
+<div class="bg-surface-container-highest/30 rounded-xl p-6">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-sm uppercase tracking-widest text-on-surface-variant">Recent Access History</h4>
+<button class="text-primary text-xs font-bold">Download Full Audit Log</button>
+</div>
+<div class="space-y-2">
+<div class="bg-surface-container-lowest rounded-lg p-3 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="login">login</span>
+<div>
+<p class="text-xs font-bold">Successful Login</p>
+<p class="text-[10px] text-on-surface-variant">Central Hospital ICU Node • IP: 10.0.4.122</p>
+</div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant">2 mins ago</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-3 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="security_update">security_update</span>
+<div>
+<p class="text-xs font-bold">Alert Threshold Updated</p>
+<p class="text-[10px] text-on-surface-variant">Modified Lactate Baseline</p>
+</div>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant">Today, 08:45 AM</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Authority Source: JSON logic - hide on web, show on mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-slate-50/90 backdrop-blur-md px-4 py-2 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-medium">Overview</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="group">group</span>
+<span class="text-[10px] font-medium">Patients</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-blue-700 font-bold border-t-2 border-blue-700" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+<span class="text-[10px]">Settings</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-slate-500" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="emergency_home">emergency_home</span>
+<span class="text-[10px] font-medium">Alerts</span>
+</a>
+</nav>
+</body></html>

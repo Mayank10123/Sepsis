@@ -1,0 +1,35 @@
+/* ===== Settings CSS ===== */
+
+.settings-page { padding: 32px; background: var(--sg-surface); min-height: 100vh; }
+.settings-header { margin-bottom: 32px; display: flex; align-items: center; gap: 20px; }
+.settings-header h1 { font-size: 24px; font-weight: 800; }
+
+.settings-grid { display: grid; grid-template-columns: 240px 1fr; gap: 24px; }
+.settings-nav { display: flex; flex-direction: column; gap: 4px; padding: 12px; }
+.settings-nav button { text-align: left; padding: 12px 16px; border: none; border-radius: var(--sg-radius-md); background: transparent; font-size: 14px; font-weight: 600; color: var(--sg-on-surface-variant); cursor: pointer; transition: all var(--sg-transition-fast); }
+.settings-nav button.active { background: var(--sg-primary-fixed); color: var(--sg-primary); }
+
+.settings-main-content { display: flex; flex-direction: column; gap: 24px; }
+.settings-section { padding: 32px; }
+.settings-section h3 { font-size: 18px; margin-bottom: 24px; }
+
+.profile-row { display: flex; gap: 40px; align-items: flex-start; }
+.profile-avatar-lg { width: 100px; height: 100px; border-radius: 50%; background: var(--sg-surface-container-low); display: flex; align-items: center; justify-content: center; }
+.profile-avatar-lg .material-symbols-outlined { font-size: 64px; color: var(--sg-outline-variant); }
+
+.profile-info-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.p-field { display: flex; flex-direction: column; gap: 8px; }
+.p-field label { font-size: 12px; font-weight: 700; color: var(--sg-outline); text-transform: uppercase; letter-spacing: 0.5px; }
+.sg-input.disabled { background: var(--sg-surface-container-low); color: var(--sg-outline); cursor: not-allowed; }
+
+.toggle-list { display: flex; flex-direction: column; gap: 24px; }
+.toggle-item { display: flex; justify-content: space-between; align-items: center; }
+.toggle-text h4 { font-size: 14px; margin-bottom: 4px; }
+.toggle-text p { font-size: 12px; color: var(--sg-on-surface-variant); font-weight: 500; }
+
+.toggle-switch { width: 50px; height: 26px; border-radius: 13px; background: var(--sg-surface-container-highest); border: none; padding: 3px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+.toggle-switch.on { background: var(--sg-primary); }
+.toggle-dot { width: 20px; height: 20px; background: white; border-radius: 50%; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.toggle-switch.on .toggle-dot { transform: translateX(24px); }
+
+.settings-footer { display: flex; gap: 16px; justify-content: flex-end; margin-top: 8px; }

@@ -1,0 +1,79 @@
+/* ===== AI Digital Twin — Bento Visual Series ===== */
+
+.digital-twin-container {
+  width: 100%;
+}
+
+.twin-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+}
+
+/* Anatomical Canvas */
+.twin-visual-canvas {
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+.visual-header { display: flex; align-items: center; gap: 8px; margin-bottom: 32px; }
+.visual-header h4 { font-size: 12px; font-weight: 800; color: var(--sg-outline); letter-spacing: 1px; flex: 1; }
+.live-sync-indicator { display: flex; align-items: center; gap: 6px; font-size: 9px; font-weight: 900; color: var(--sg-stable); }
+.sync-dot { width: 6px; height: 6px; background: var(--sg-stable); border-radius: 50%; box-shadow: 0 0 8px var(--sg-stable); animation: sg-pulse 1.5s infinite; }
+
+.anatomical-base { flex: 1; display: flex; align-items: center; justify-content: center; }
+.body-svg { height: 320px; opacity: 0.8; }
+
+.organ-node { stroke: white; stroke-width: 2px; }
+.organ-node.stable { fill: var(--sg-stable); filter: drop-shadow(0 0 4px var(--sg-stable)); }
+.organ-node.healing { fill: var(--sg-primary); filter: drop-shadow(0 0 4px var(--sg-primary)); }
+.organ-node.stressed { fill: var(--sg-watch); filter: drop-shadow(0 0 4px var(--sg-watch)); }
+.organ-node.critical { fill: var(--sg-error); filter: drop-shadow(0 0 8px var(--sg-error)); animation: sg-pulse 1s infinite; }
+
+/* Bento Insights */
+.twin-insights-bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.organ-bento-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid transparent;
+}
+.organ-bento-card.critical { background: rgba(239, 68, 68, 0.02); border-color: rgba(239, 68, 68, 0.1); }
+
+.bento-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.bento-head .material-symbols-outlined { color: var(--sg-primary); font-size: 20px; }
+.bento-name { font-weight: 800; font-size: 14px; flex: 1; color: var(--sg-on-surface); }
+
+.bento-status-pill { font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+.bento-status-pill.stable { background: #d1fae5; color: #065f46; }
+.bento-status-pill.healing { background: #dbeafe; color: #1e40af; }
+.bento-status-pill.stressed { background: #fef3c7; color: #92400e; }
+.bento-status-pill.critical { background: #fee2e2; color: #991b1b; }
+
+.bento-body p { font-size: 12px; color: var(--sg-on-surface-variant); line-height: 1.5; margin-bottom: 16px; min-height: 36px; }
+
+.healing-progress-container { display: flex; flex-direction: column; gap: 8px; }
+.progress-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 800; color: var(--sg-outline); text-transform: uppercase; }
+.progress-bar-bg { height: 6px; background: var(--sg-surface-container-low); border-radius: 3px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--sg-primary), #10b981); border-radius: 3px; }
+
+.organ-bento-card.stable .progress-bar-fill { background: var(--sg-stable); }
+.organ-bento-card.critical .progress-bar-fill { background: var(--sg-error); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .twin-grid { grid-template-columns: 1fr; }
+  .twin-visual-canvas { height: 400px; }
+}
+@media (max-width: 768px) {
+  .twin-insights-bento { grid-template-columns: 1fr; }
+}

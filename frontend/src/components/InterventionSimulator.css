@@ -1,0 +1,33 @@
+/* ===== Intervention Simulator CSS ===== */
+
+.simulator-widget { padding: 24px; background: white; }
+.sim-header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid var(--sg-surface-container); padding-bottom: 16px; }
+.sim-header h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; color: var(--sg-primary); }
+
+.sim-body { display: flex; flex-direction: column; gap: 24px; }
+.sim-control { display: flex; flex-direction: column; gap: 12px; }
+.sim-control label { font-size: 12px; font-weight: 700; color: var(--sg-outline); text-transform: uppercase; }
+.sim-control label strong { color: var(--sg-primary); font-size: 15px; }
+
+.sg-slider { width: 100%; accent-color: var(--sg-primary); height: 6px; border-radius: 3px; cursor: pointer; }
+
+.sim-control-row { display: flex; justify-content: space-between; align-items: center; }
+.sim-control-row label { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--sg-outline); }
+
+.toggle-btn { width: 44px; height: 22px; background: var(--sg-surface-container-high); border-radius: 11px; border: none; padding: 2px; cursor: pointer; transition: all 0.3s; position: relative; }
+.toggle-btn.on { background: var(--sg-primary); }
+.t-dot { width: 18px; height: 18px; background: white; border-radius: 50%; transition: all 0.3s; }
+.toggle-btn.on .t-dot { transform: translateX(22px); }
+
+.prediction-result { background: var(--sg-surface-container-low); padding: 20px; border-radius: var(--sg-radius-lg); border-left: 4px solid var(--sg-primary); }
+.res-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.res-meta span { font-size: 11px; font-weight: 700; max-width: 150px; line-height: 1.4; color: var(--sg-outline); }
+.res-score { font-family: var(--sg-font-headline); font-size: 28px; font-weight: 800; }
+.res-score.grad-stable { color: var(--sg-stable); }
+.res-score.grad-risk { color: var(--sg-error); }
+
+.res-delta { font-size: 11px; color: var(--sg-primary); font-weight: 800; text-transform: uppercase; }
+
+.sim-footer { margin-top: 24px; display: flex; gap: 10px; align-items: center; opacity: 0.6; }
+.sim-footer .material-symbols-outlined { font-size: 18px; }
+.sim-footer p { font-size: 10px; font-weight: 700; text-transform: uppercase; }

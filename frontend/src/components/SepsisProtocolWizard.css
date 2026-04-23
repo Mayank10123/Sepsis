@@ -1,0 +1,108 @@
+/* ===== Sepsis Protocol Wizard ===== */
+
+.protocol-wizard-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 26, 64, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.protocol-wizard-card {
+  width: 100%;
+  max-width: 650px;
+  background: white;
+  border-radius: var(--sg-radius-2xl);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.wizard-header {
+  padding: 24px 32px;
+  background: white;
+  border-bottom: 1px solid var(--sg-surface-container-high);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wizard-title-col { display: flex; align-items: center; gap: 16px; }
+.header-icon { font-size: 32px; color: var(--sg-error); }
+.title-text h3 { font-size: 18px; margin-bottom: 2px; }
+.title-text p { font-size: 13px; color: var(--sg-outline); font-weight: 500; }
+
+.wizard-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sg-surface-container-low);
+  padding: 10px 20px;
+  border-radius: var(--sg-radius-full);
+  color: var(--sg-on-surface);
+  font-family: var(--sg-font-headline);
+  font-weight: 800;
+  font-size: 18px;
+}
+.wizard-timer.expired { background: var(--sg-error-container); color: var(--sg-error); animation: sg-pulse 1s infinite; }
+.timer-val { min-width: 55px; }
+
+.wizard-close { background: transparent; border: none; cursor: pointer; color: var(--sg-outline); }
+
+.wizard-ai-bar {
+  background: var(--sg-primary-fixed);
+  padding: 16px 32px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.wizard-ai-bar .material-symbols-outlined { color: var(--sg-primary); animation: sg-spin 10s linear infinite; }
+.wizard-ai-bar p { font-size: 13px; color: var(--sg-on-primary-fixed-variant); line-height: 1.5; }
+
+.wizard-progress-section { padding: 24px 32px; border-bottom: 1px solid var(--sg-surface-container-high); }
+.progress-label { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 12px; font-weight: 700; color: var(--sg-outline); text-transform: uppercase; letter-spacing: 0.5px; }
+.progress-bar-bg { height: 8px; background: var(--sg-surface-container-low); border-radius: var(--sg-radius-full); overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--sg-primary); border-radius: var(--sg-radius-full); transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.wizard-steps-list { padding: 12px 0; max-height: 400px; overflow-y: auto; }
+.wizard-step-item {
+  display: flex;
+  padding: 20px 32px;
+  gap: 20px;
+  transition: background var(--sg-transition-fast);
+  border-bottom: 1px solid var(--sg-surface-container-low);
+}
+.wizard-step-item:hover { background: var(--sg-surface-container-low); }
+.wizard-step-item.completed { background: rgba(16, 185, 129, 0.03); }
+
+.step-checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 2px solid var(--sg-outline-variant);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--sg-transition-fast);
+}
+.wizard-step-item.completed .step-checkbox { background: var(--sg-stable); border-color: var(--sg-stable); color: white; }
+.step-checkbox .material-symbols-outlined { font-size: 18px; font-weight: 800; }
+
+.step-icon-col { width: 40px; height: 40px; border-radius: 50%; background: var(--sg-surface-container-low); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-icon-col .material-symbols-outlined { font-size: 20px; color: var(--sg-outline); }
+.wizard-step-item.completed .step-icon-col { background: var(--sg-risk-low-bg); color: var(--sg-stable); }
+.wizard-step-item.completed .step-icon-col .material-symbols-outlined { color: var(--sg-stable); }
+
+.step-content-col { flex: 1; }
+.step-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.step-desc { font-size: 13px; color: var(--sg-on-surface-variant); line-height: 1.5; }
+.wizard-step-item.completed .step-title { color: var(--sg-stable); }
+
+.wizard-footer { padding: 24px 32px; display: flex; justify-content: space-between; gap: 16px; background: var(--sg-surface-container-low); }
+.wizard-footer .sg-btn { flex: 1; }

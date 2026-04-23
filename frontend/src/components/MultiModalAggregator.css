@@ -1,0 +1,23 @@
+/* ===== Multi-Modal Aggregator CSS ===== */
+
+.aggregator-panel { padding: 24px; background: white; }
+.agg-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.agg-header h3 { font-size: 14px; font-weight: 800; flex: 1; margin: 0; }
+.fusion-active { font-size: 10px; font-weight: 900; background: var(--sg-primary-fixed); color: var(--sg-primary); padding: 4px 10px; border-radius: 4px; }
+
+.agg-body { display: flex; gap: 32px; align-items: center; margin-bottom: 24px; }
+.fusion-score-circle { position: relative; width: 100px; height: 100px; text-align: center; }
+.fusion-score-circle svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+.score-val { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: 800; font-family: var(--sg-font-headline); color: var(--sg-primary); }
+.score-label { position: absolute; bottom: 8%; width: 100%; font-size: 7px; font-weight: 900; color: var(--sg-outline); letter-spacing: 0.5px; opacity: 0.8; }
+
+.sensor-list { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.s-row { display: flex; flex-direction: column; gap: 4px; }
+.s-name { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--sg-on-surface); }
+.s-name strong { color: var(--sg-primary); font-size: 9px; text-transform: uppercase; }
+.s-bar-bg { height: 4px; background: var(--sg-surface-container-low); border-radius: 2px; }
+.s-bar-fill { height: 100%; background: var(--sg-primary); border-radius: 2px; transition: width 1s ease-out; }
+
+.agg-insight { padding: 12px; background: var(--sg-surface-container-low); border-radius: var(--sg-radius-md); display: flex; gap: 8px; align-items: center; }
+.agg-insight .material-symbols-outlined { color: var(--sg-primary); font-size: 18px; }
+.agg-insight p { font-size: 11px; line-height: 1.4; color: var(--sg-on-surface-variant); margin: 0; }

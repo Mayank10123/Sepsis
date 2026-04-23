@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SepsisGuard Live | Patient #42 Detail</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "secondary-container": "#90efef",
+                    "inverse-primary": "#acc7ff",
+                    "inverse-on-surface": "#eff1f2",
+                    "inverse-surface": "#2e3132",
+                    "on-surface-variant": "#424752",
+                    "on-surface": "#191c1d",
+                    "surface-bright": "#f8fafb",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "surface-tint": "#115cb9",
+                    "tertiary-container": "#04681b",
+                    "background": "#f8fafb",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#bbd0ff",
+                    "surface-container-high": "#e6e8e9",
+                    "outline": "#727784",
+                    "secondary-fixed-dim": "#76d6d5",
+                    "on-primary-fixed": "#001a40",
+                    "primary-container": "#0056b3",
+                    "outline-variant": "#c2c6d4",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#002204",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "primary-fixed": "#d7e2ff",
+                    "secondary-fixed": "#93f2f2",
+                    "tertiary-fixed-dim": "#82db7e",
+                    "primary": "#003f87",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#006e6e",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#8ce587",
+                    "primary-fixed-dim": "#acc7ff",
+                    "secondary": "#006a6a",
+                    "on-background": "#191c1d",
+                    "on-secondary-fixed": "#002020",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface": "#f8fafb",
+                    "surface-dim": "#d8dadb",
+                    "tertiary": "#004d10",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f2f4f5",
+                    "on-primary-fixed-variant": "#004491",
+                    "tertiary-fixed": "#9df898",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#eceeef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar Navigation Shell -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-slate-100 dark:bg-slate-950 flex flex-col p-4 space-y-2 z-40">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-black text-blue-900 dark:text-blue-100 font-headline">SepsisGuard Live</h1>
+</div>
+<div class="flex items-center space-x-3 p-3 mb-6 bg-slate-50 dark:bg-slate-900 rounded-xl">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional portrait of a male doctor in clinical attire with a confident and calm expression, hospital environment background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsnZHzL-nAkOobwZeeMunqzSeeyi4QEij516nJMFdIRjsRo91zwriwqFRFGOslKmZwhVdn5C-uBsMsu2FgJZel-946XsbiacdY-Chr8bIPX8OJoepRuZyHEqioBDkcFiXItVWP_1S6Rrg1szeUnwOrZxUGe3wGs9wOhFvkSIk21Fgmda0qAq7ydAchrddP8MM1VPQwozcCTh_r-lQ-Xw-ckpaYzgnggOYKCUW22eeWV3tIVP7xm6Xce3s_q-tkSg6zTZRs3XgLGVA"/>
+<div>
+<p class="text-sm font-bold font-headline text-blue-900 dark:text-blue-200">Dr. Clinical Sentinel</p>
+<p class="text-[10px] text-slate-500 font-medium">ICU Department</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-transform duration-200 rounded-lg font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center space-x-3 p-3 bg-white dark:bg-blue-900/40 text-blue-800 dark:text-blue-100 rounded-lg shadow-sm font-bold font-manrope text-sm active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>My Patients</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-transform duration-200 rounded-lg font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-transform duration-200 rounded-lg font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+<span>Alerts</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200/50 mt-auto space-y-1">
+<button class="w-full py-3 mb-4 bg-gradient-to-r from-primary to-primary-container text-white rounded-xl font-headline font-bold text-xs tracking-wider uppercase">Sepsis Protocol</button>
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 rounded-lg font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 rounded-lg font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top Bar with Alert -->
+<header class="fixed top-0 right-0 left-64 z-30">
+<!-- Alert Banner -->
+<div class="bg-error text-on-error px-6 py-2 flex items-center justify-between shadow-lg">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined animate-pulse" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-headline font-bold text-sm tracking-wide">⚠️ Patient #42: Early sepsis signal detected by AI.</span>
+</div>
+<div class="flex items-center space-x-4">
+<span class="text-xs opacity-90 font-medium">Detected 14m ago</span>
+<button class="bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full text-xs font-bold transition-colors">Acknowledge</button>
+</div>
+</div>
+<!-- Contextual App Bar -->
+<div class="bg-slate-50/70 backdrop-blur-xl border-b border-slate-100 flex justify-between items-center px-8 py-4">
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-slate-200 rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<h2 class="text-xl font-bold font-headline text-blue-900 tracking-tight">Patient #42: Elena Rodriguez</h2>
+<p class="text-xs text-on-surface-variant font-medium">DOB: 05/12/1978 • MRN: 9920-X12 • Bed: ICU-04</p>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<button class="flex items-center space-x-2 bg-surface-container-high px-4 py-2 rounded-xl text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-sm" data-icon="lab_research">lab_research</span>
+<span>Order Labs</span>
+</button>
+<button class="flex items-center space-x-2 bg-surface-container-high px-4 py-2 rounded-xl text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-sm" data-icon="chat">chat</span>
+<span>Message Team</span>
+</button>
+<button class="flex items-center space-x-2 bg-error-container text-on-error-container px-4 py-2 rounded-xl font-bold text-sm border border-error/10 hover:bg-error hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-sm" data-icon="emergency">emergency</span>
+<span>Escalate Protocol</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="pt-36 px-8 pb-12">
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Risk Analysis Hero (Asymmetric) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between min-h-[320px]">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-error mb-2 block">AI Sepsis Risk Score</span>
+<h3 class="text-6xl font-black font-headline text-on-surface">45<span class="text-2xl text-on-surface-variant font-normal ml-1">%</span></h3>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-3 py-1 bg-error-container text-on-error-container rounded-full text-xs font-bold mb-2">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="trending_up">trending_up</span>
+                                HIGH RISK
+                            </span>
+<p class="text-sm text-on-surface-variant font-medium">Last 90 Minutes Analysis</p>
+</div>
+</div>
+<div class="mt-8 flex-1">
+<div class="flex items-end space-x-1 h-32 w-full">
+<!-- Visualizing Risk Rise 12% to 45% -->
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[12%] opacity-40"></div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[14%] opacity-40"></div>
+<div class="flex-1 bg-slate-100 rounded-t-sm h-[15%] opacity-40"></div>
+<div class="flex-1 bg-slate-200 rounded-t-sm h-[18%] opacity-50"></div>
+<div class="flex-1 bg-blue-100 rounded-t-sm h-[22%] opacity-60"></div>
+<div class="flex-1 bg-blue-200 rounded-t-sm h-[28%] opacity-70"></div>
+<div class="flex-1 bg-orange-200 rounded-t-sm h-[35%] opacity-80"></div>
+<div class="flex-1 bg-error-container rounded-t-sm h-[45%]"></div>
+</div>
+<div class="flex justify-between mt-4 border-t border-outline-variant/20 pt-4">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant">90m Ago</span>
+<span class="text-lg font-bold">12%</span>
+</div>
+<div class="text-center bg-error-container/50 px-6 py-2 rounded-full border border-error/10">
+<span class="text-sm font-bold text-error">Risk rose from 12% → 45% in 90 min</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-xs text-on-surface-variant">Current</span>
+<span class="text-lg font-bold text-error">45%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Triggers Column -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6">
+<h4 class="text-sm font-bold font-headline mb-4 flex items-center">
+<span class="material-symbols-outlined text-primary mr-2" data-icon="priority_high">priority_high</span>
+                            Top 3 Triggers
+                        </h4>
+<div class="space-y-3">
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between group hover:translate-x-1 transition-all">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-sm" data-icon="science" style="font-variation-settings: 'FILL' 1;">science</span>
+</div>
+<span class="text-sm font-semibold">Lactate increase</span>
+</div>
+<span class="text-xs font-bold text-error">+2.1 mmol/L</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between group hover:translate-x-1 transition-all">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="thermostat">thermostat</span>
+</div>
+<span class="text-sm font-semibold">Temp trend</span>
+</div>
+<span class="text-xs font-bold text-secondary">38.9°C ↑</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between group hover:translate-x-1 transition-all">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-sm" data-icon="air">air</span>
+</div>
+<span class="text-sm font-semibold">RR increase</span>
+</div>
+<span class="text-xs font-bold text-primary">28 bpm</span>
+</div>
+</div>
+</div>
+<div class="bg-primary p-6 rounded-xl text-white relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-sm font-bold font-headline mb-2">Protocol Recommendation</h4>
+<p class="text-xs opacity-80 leading-relaxed mb-4">Based on Surviving Sepsis Campaign bundles: Initiate fluid resuscitation and obtain blood cultures immediately.</p>
+<button class="w-full py-2 bg-white text-primary rounded-lg font-bold text-xs uppercase tracking-wider">Start Protocol</button>
+</div>
+<div class="absolute -bottom-8 -right-8 opacity-10">
+<span class="material-symbols-outlined text-9xl" data-icon="medical_services">medical_services</span>
+</div>
+</div>
+</div>
+<!-- Vital Sign Charts Grid -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- HR Chart -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Heart Rate</p>
+<p class="text-2xl font-black font-headline text-on-surface">112 <span class="text-xs font-normal opacity-60">bpm</span></p>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="h-16 flex items-end space-x-px">
+<!-- Mimic Sparkline -->
+<div class="flex-1 bg-error/20 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-error/30 h-[65%] rounded-t-sm"></div>
+<div class="flex-1 bg-error/40 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-error/50 h-[85%] rounded-t-sm"></div>
+<div class="flex-1 bg-error/60 h-[80%] rounded-t-sm"></div>
+<div class="flex-1 bg-error/80 h-[95%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- Temp Chart -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Temperature</p>
+<p class="text-2xl font-black font-headline text-on-surface">38.9 <span class="text-xs font-normal opacity-60">°C</span></p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="device_thermostat" style="font-variation-settings: 'FILL' 1;">device_thermostat</span>
+</div>
+<div class="h-16 flex items-end space-x-px">
+<div class="flex-1 bg-secondary/20 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary/30 h-[45%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary/40 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary/50 h-[75%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary/60 h-[85%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary/80 h-[90%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- RR Chart -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Resp. Rate</p>
+<p class="text-2xl font-black font-headline text-on-surface">28 <span class="text-xs font-normal opacity-60">bpm</span></p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="air" style="font-variation-settings: 'FILL' 1;">air</span>
+</div>
+<div class="h-16 flex items-end space-x-px">
+<div class="flex-1 bg-primary/20 h-[50%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[65%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/50 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/60 h-[80%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/80 h-[100%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- Lactate Chart -->
+<div class="bg-surface-container rounded-xl p-5 border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Lactate</p>
+<p class="text-2xl font-black font-headline text-on-surface">4.2 <span class="text-xs font-normal opacity-60">mmol/L</span></p>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="biotech" style="font-variation-settings: 'FILL' 1;">biotech</span>
+</div>
+<div class="h-16 flex items-end space-x-px">
+<div class="flex-1 bg-tertiary/20 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/30 h-[35%] rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/40 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/50 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/60 h-[80%] rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/80 h-[95%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<!-- Recent Clinical History / Notes -->
+<div class="col-span-12 bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-lg font-bold font-headline">Clinical Timeline</h4>
+<div class="flex space-x-2">
+<button class="bg-white px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm hover:bg-slate-50 transition-colors">Vitals</button>
+<button class="bg-slate-200 px-4 py-1.5 rounded-lg text-xs font-bold transition-colors">Labs</button>
+<button class="bg-slate-200 px-4 py-1.5 rounded-lg text-xs font-bold transition-colors">Medications</button>
+</div>
+</div>
+<div class="space-y-4 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-300/40">
+<!-- Timeline Item 1 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-error-container border-4 border-surface-container-low flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border-l-4 border-error">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-error">CRITICAL ALERT: SEPSIS SCORE INCREASE</span>
+<span class="text-xs text-on-surface-variant font-medium">14m ago</span>
+</div>
+<p class="text-sm leading-relaxed text-on-surface-variant italic">"AI detects significant lactic acid elevation + concurrent hypotension trend. Protocol recommendation: Fluid bolus 30mL/kg."</p>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-slate-300 border-4 border-surface-container-low flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-slate-500"></div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-on-surface">Medication Administered</span>
+<span class="text-xs text-on-surface-variant font-medium">45m ago</span>
+</div>
+<p class="text-sm text-on-surface-variant font-medium">Vancomycin 1g IV PB started per Dr. Sentinel orders.</p>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container border-4 border-surface-container-low flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-secondary">Vital Shift Detected</span>
+<span class="text-xs text-on-surface-variant font-medium">90m ago</span>
+</div>
+<p class="text-sm text-on-surface-variant">Temperature spike recorded at 38.9°C. RR elevated to 26 bpm.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) - Suppressed on Details per instructions -->
+</body></html>

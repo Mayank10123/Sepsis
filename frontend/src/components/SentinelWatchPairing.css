@@ -1,0 +1,157 @@
+/* ===== Sentinel Hardware Integration CSS ===== */
+
+.hardware-integration-area {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.hardware-card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: var(--sg-radius-2xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hw-title { display: flex; align-items: center; gap: 10px; }
+.hw-title .material-symbols-outlined { color: var(--sg-primary); }
+.hw-title h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.hw-status-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--sg-surface-container-low);
+  color: var(--sg-outline);
+}
+.hw-status-badge.searching { background: var(--sg-primary-fixed); color: var(--sg-primary); }
+.hw-status-badge.synced { background: var(--sg-risk-low-bg); color: var(--sg-stable); }
+
+/* Virtual Watch UI States */
+.hw-visualizer {
+  height: 240px;
+  background: var(--sg-surface-container-low);
+  border-radius: var(--sg-radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hw-state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 20px;
+}
+.hw-state-box p { font-size: 13px; font-weight: 600; color: var(--sg-on-surface-variant); }
+
+.watch-silhouette {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  border: 4px solid var(--sg-outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sg-outline-variant);
+}
+
+/* Radar Animation */
+.radar-animation {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sg-primary);
+}
+.radar-animation .material-symbols-outlined { font-size: 32px; z-index: 2; }
+.ripple {
+  position: absolute;
+  border: 2px solid var(--sg-primary);
+  border-radius: 50%;
+  animation: radar-pulse 2s infinite;
+  opacity: 0;
+}
+.ripple:nth-child(2) { animation-delay: 0.5s; }
+.ripple:nth-child(3) { animation-delay: 1s; }
+
+/* Pairing Circle */
+.progress-circle {
+  width: 100px;
+  height: 100px;
+  transform: rotate(-90deg);
+}
+.progress-circle circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+.progress-circle .bg { stroke: var(--sg-surface-container-highest); }
+.progress-circle .fg {
+  stroke: var(--sg-primary);
+  stroke-dasharray: 283;
+  transition: stroke-dashoffset 0.1s linear;
+}
+.progress-val {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: 800;
+  font-family: var(--sg-font-headline);
+}
+
+/* Success State */
+.sync-success { color: var(--sg-stable); }
+.sync-success .material-symbols-outlined { font-size: 48px; margin-bottom: 8px; }
+.live-data-stream {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.stream-pill {
+  background: white;
+  padding: 6px 12px;
+  border-radius: var(--sg-radius-full);
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--sg-shadow-sm);
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+.dot.hr { background: var(--sg-error); animation: sg-pulse 1s infinite; }
+.dot.temp { background: #f59e0b; }
+
+.hw-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0.6;
+}
+.hw-footer .material-symbols-outlined { font-size: 16px; }
+.hw-footer p { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+@keyframes radar-pulse {
+  from { width: 0; height: 0; opacity: 0.8; }
+  to { width: 100%; height: 100%; opacity: 0; }
+}

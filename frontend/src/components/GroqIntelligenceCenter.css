@@ -1,0 +1,49 @@
+/* ===== Groq Intelligence Center CSS ===== */
+
+.groq-ai-center {
+  padding: 24px;
+  background: white;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-center-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.ai-brand { display: flex; align-items: center; gap: 10px; }
+.ai-brand h3 { font-size: 14px; font-weight: 800; letter-spacing: 1px; color: var(--sg-primary); }
+.sparkles { color: var(--sg-primary); animation: sg-fade-in 2s infinite alternate; }
+
+.ai-status { font-size: 10px; font-weight: 900; background: var(--sg-surface-container-low); padding: 4px 10px; border-radius: var(--sg-radius-full); display: flex; align-items: center; gap: 8px; color: var(--sg-outline); }
+.dot-blink { width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: sg-pulse 1.5s infinite; }
+
+.ai-feature-explorer { display: flex; gap: 24px; flex: 1; }
+
+.feature-nav { display: flex; flex-direction: column; gap: 8px; }
+.feature-nav button { width: 44px; height: 44px; border-radius: 12px; border: none; background: var(--sg-surface-container-low); color: var(--sg-outline); cursor: pointer; transition: all 0.2s; }
+.feature-nav button.active { background: var(--sg-primary); color: white; box-shadow: var(--sg-shadow-md); transform: scale(1.1); }
+
+.feature-display { flex: 1; padding: 0 8px; position: relative; }
+.feature-card-content h4 { font-size: 18px; margin-bottom: 12px; }
+.f-desc { font-size: 13px; color: var(--sg-outline); line-height: 1.6; margin-bottom: 20px; }
+
+.ai-result-box {
+  background: var(--sg-surface-container-low);
+  padding: 16px;
+  border-radius: var(--sg-radius-lg);
+  border-left: 4px solid var(--sg-primary);
+}
+.r-label { font-size: 10px; font-weight: 900; color: var(--sg-primary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+.r-text { font-size: 14px; font-weight: 600; color: var(--sg-on-surface); line-height: 1.5; }
+
+.ai-center-footer { margin-top: 24px; border-top: 1px solid var(--sg-surface-container); padding-top: 16px; text-align: center; }
+.ai-center-footer p { font-size: 10px; color: var(--sg-outline); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Role Variations */
+.role-patient .ai-brand h3, .role-patient .sparkles, .role-patient .ai-result-box { color: #10b981; border-color: #10b981; }
+.role-patient .feature-nav button.active { background: #10b981; }
+.role-patient .r-label { color: #10b981; }

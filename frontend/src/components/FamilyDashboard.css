@@ -1,0 +1,84 @@
+/* ===== Family Portal — Stitch 1:1 Match ===== */
+
+.family-portal {
+  min-height: 100vh;
+  background: var(--sg-surface);
+}
+
+/* Nav */
+.family-topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: white;
+  border-bottom: 1px solid var(--sg-surface-container-high);
+}
+.family-topnav .logo-text { font-family: var(--sg-font-headline); font-size: 17px; font-weight: 800; color: var(--sg-primary); }
+.family-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--sg-primary); color: white; border: none; font-weight: 700; cursor: pointer; }
+
+/* Main */
+.family-main { padding: 32px; max-width: 1200px; margin: 0 auto; }
+.family-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+.patient-focus h1 { font-size: 28px; margin-bottom: 6px; }
+.patient-focus p { color: var(--sg-on-surface-variant); font-size: 14px; font-weight: 500; }
+
+/* Banner */
+.family-update-banner {
+  background: linear-gradient(135deg, #006a6a, #008989);
+  color: white;
+  padding: 24px 32px;
+  border-radius: var(--sg-radius-xl);
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 30px rgba(0, 106, 106, 0.15);
+}
+.banner-icon { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.banner-content h3 { color: white; font-size: 18px; margin-bottom: 8px; }
+.banner-content p { color: rgba(255,255,255,0.9); font-size: 14px; line-height: 1.6; }
+
+/* Vitals Row */
+.family-vitals-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+.fv-card { text-align: center; padding: 24px !important; }
+.fv-label { font-size: 11px; font-weight: 700; color: var(--sg-outline); letter-spacing: 1px; display: block; margin-bottom: 12px; }
+.fv-value { font-family: var(--sg-font-headline); font-size: 32px; font-weight: 800; color: var(--sg-on-surface); margin-bottom: 4px; }
+.fv-unit { font-size: 14px; font-weight: 600; color: var(--sg-outline); }
+.fv-status { font-size: 12px; font-weight: 700; }
+.fv-status.stable { color: var(--sg-stable); }
+.fv-status.rising { color: var(--sg-watch); }
+
+/* Body Grid */
+.family-body-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; margin-bottom: 32px; }
+.card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.view-more { font-size: 12px; font-weight: 700; color: var(--sg-primary); cursor: pointer; }
+.family-chart-box { height: 260px; margin-bottom: 20px; }
+.chart-explanation { font-size: 13px; color: var(--sg-on-surface-variant); background: var(--sg-surface-container-low); padding: 16px; border-radius: var(--sg-radius-md); line-height: 1.5; }
+
+/* Timeline */
+.family-timeline { display: flex; flex-direction: column; gap: 20px; margin-bottom: 24px; }
+.f-timeline-item { display: flex; align-items: flex-start; gap: 16px; font-size: 13px; }
+.time-col { width: 60px; font-weight: 700; color: var(--sg-outline); font-size: 11px; padding-top: 2px; }
+.dot-col { position: relative; padding-top: 4px; }
+.f-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--sg-surface-container-highest); border: 2px solid white; position: relative; z-index: 2; }
+.f-dot.success { background: var(--sg-stable); }
+.f-dot.info { background: var(--sg-primary); }
+.f-dot.med { background: #8b5cf6; }
+.f-dot.status { background: #3b82f6; }
+.text-col { flex: 1; color: var(--sg-on-surface); line-height: 1.4; }
+.view-full-history-btn { width: 100%; padding: 12px; border: 1px solid var(--sg-surface-container-high); border-radius: var(--sg-radius-md); background: transparent; font-size: 13px; font-weight: 700; color: var(--sg-outline); cursor: pointer; }
+
+/* Care Team */
+.family-care-team h3 { font-size: 18px; margin-bottom: 20px; }
+.care-team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.care-card { display: flex; align-items: center; gap: 16px; padding: 16px !important; }
+.care-card img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--sg-primary-fixed); }
+.care-info h4 { font-size: 15px; margin-bottom: 2px; }
+.care-info p { font-size: 13px; color: var(--sg-on-surface-variant); font-weight: 500; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .family-body-grid { grid-template-columns: 1fr; }
+  .family-vitals-row { grid-template-columns: 1fr; }
+  .family-main { padding: 16px; }
+}

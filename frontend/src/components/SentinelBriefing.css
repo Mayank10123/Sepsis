@@ -1,0 +1,40 @@
+/* ===== Sentinel Briefing CSS ===== */
+
+.sentinel-briefing {
+  padding: 24px;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.sentinel-briefing.doctor {
+  border-left: 4px solid var(--sg-primary);
+}
+
+.sentinel-briefing.family {
+  background: linear-gradient(135deg, white, var(--sg-primary-fixed));
+  border: 1px solid var(--sg-primary-fixed);
+}
+
+.briefing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.b-title { display: flex; align-items: center; gap: 8px; }
+.b-title .material-symbols-outlined { color: var(--sg-primary); }
+.b-title h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.refresh-btn { background: transparent; border: none; color: var(--sg-outline); cursor: pointer; }
+
+.briefing-content { min-height: 60px; }
+.b-p { font-size: 14px; font-weight: 500; font-style: italic; color: var(--sg-on-surface); line-height: 1.6; }
+
+.b-skeleton { display: flex; flex-direction: column; gap: 10px; }
+.s-line { height: 12px; background: var(--sg-surface-container-low); border-radius: 6px; }
+.s-line.full { width: 100%; }
+.s-line.mid { width: 60%; }
+
+.briefing-actions { margin-top: 20px; }
+.briefing-actions .sg-btn { width: 100%; font-size: 12px; padding: 10px; }

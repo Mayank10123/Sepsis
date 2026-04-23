@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SepsisGuard Live - Patient &amp; Family Resources</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#004491",
+                    "inverse-primary": "#acc7ff",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-primary-container": "#bbd0ff",
+                    "surface-container": "#eceeef",
+                    "on-surface": "#191c1d",
+                    "surface-variant": "#e1e3e4",
+                    "surface-dim": "#d8dadb",
+                    "surface-container-high": "#e6e8e9",
+                    "outline": "#727784",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#9df898",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "surface-bright": "#f8fafb",
+                    "secondary-fixed-dim": "#76d6d5",
+                    "background": "#f8fafb",
+                    "on-tertiary-fixed": "#002204",
+                    "primary-container": "#0056b3",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-secondary-container": "#006e6e",
+                    "secondary": "#006a6a",
+                    "inverse-on-surface": "#eff1f2",
+                    "outline-variant": "#c2c6d4",
+                    "on-surface-variant": "#424752",
+                    "secondary-fixed": "#93f2f2",
+                    "on-background": "#191c1d",
+                    "surface-container-low": "#f2f4f5",
+                    "tertiary-container": "#04681b",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#82db7e",
+                    "primary-fixed": "#d7e2ff",
+                    "secondary-container": "#90efef",
+                    "surface": "#f8fafb",
+                    "on-secondary-fixed": "#002020",
+                    "on-tertiary-container": "#8ce587",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#004d10",
+                    "surface-tint": "#115cb9",
+                    "inverse-surface": "#2e3132",
+                    "primary": "#003f87",
+                    "primary-fixed-dim": "#acc7ff",
+                    "on-primary-fixed": "#001a40",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl flex justify-between items-center px-6 py-3">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-blue-900 dark:text-blue-100">SepsisGuard Live</span>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors px-3 py-1 rounded-lg" href="#">Overview</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors px-3 py-1 rounded-lg" href="#">My Patients</a>
+<a class="text-blue-700 dark:text-blue-300 font-bold border-b-2 border-blue-700 px-3 py-1" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors text-blue-900 dark:text-blue-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Chief Medical Officer Profile" class="w-full h-full object-cover" data-alt="portrait of a professional female clinician in her 50s with a kind expression and stethoscope around her neck" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA88vemhwyalht6B-S2sK-J_lUfUA0VsDTns8_sNw-t4TFeZdMwlYB_5cpIUguegqTBqUtpLynUBQC1NRJ083f5B8bj2JIAl5Ucj2tJBgT_Fqduf2agCcX8GjmZazMtCdUmBZgSdTXZ0lh5hKnPRDYN8rDVCQmGmfIfHLeaYKcUoK4M0tYyuNwTrWyovSk2MXeZyWUR8OsZaBb_dbdL3q7JC3VKyRTG5Bhgf4qPGPqtUWArrMBwaZQP76givQHfn0FMsCpmXFjwsuc"/>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 bg-slate-100 dark:bg-slate-950 p-4 space-y-2">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="h-10 w-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="clinical_notes" style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+</div>
+<div>
+<p class="font-headline text-sm font-black text-blue-900 dark:text-blue-100">Dr. Clinical Sentinel</p>
+<p class="font-body text-xs text-slate-500">ICU Department</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-transform duration-200 rounded-lg font-headline text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-transform duration-200 rounded-lg font-headline text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>My Patients</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-transform duration-200 rounded-lg font-headline text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 hover:translate-x-1 transition-transform duration-200 rounded-lg font-headline text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+<span>Alerts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-blue-900/40 text-blue-800 dark:text-blue-100 rounded-lg shadow-sm font-bold font-headline text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span>Resources</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-primary to-primary-container text-white rounded-xl font-headline font-bold text-sm shadow-md hover:opacity-90 transition-opacity">
+                    Sepsis Protocol
+                </button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 rounded-lg font-headline text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 p-6 md:p-10">
+<header class="mb-12 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="support_agent">support_agent</span>
+                    FAMILY SUPPORT CENTER
+                </div>
+<h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-4 leading-tight tracking-tight">Patient &amp; Family Resources</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl font-body leading-relaxed">
+                    Navigating a clinical environment can be overwhelming. We've curated these guides to help you understand sepsis care, monitor progress, and prepare for the journey ahead.
+                </p>
+</header>
+<!-- Bento Grid of Resources -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl">
+<!-- Main Feature Card -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-low h-[400px] flex flex-col justify-end p-8 transition-all hover:bg-surface-container">
+<div class="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity">
+<img alt="Understanding Sepsis" class="w-full h-full object-cover" data-alt="a calm clinical professional holding the hand of an elderly patient in a sunlit hospital room, soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Wnsv-j9BjhRNsmcepjfITMg-LR9gzzIKzGq9pzqvHnrkIcxMp2najtuiDJ7rT6uc80mHeu3Blr8Edx7Up9q0C9tp6kKQ3rg3Rb_IKBTWNByOvd9xaSVueOLjxCOPy4RhIhGaS2Si8asA7lVXUgU1yKF8CNGI999VMjCu3e29AuhqW2bGDMnSga5NrIbkGMH82I7Jv1zAn2ol4WemyayK755O8WTrIGYIwCe3baq1AvUPFguuTb00GBXpARfh484uUJf0szITCkA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold px-2 py-0.5 rounded-full mb-3 inline-block">ESSENTIAL READING</span>
+<h2 class="text-3xl font-bold text-white mb-2">What is Sepsis?</h2>
+<p class="text-on-primary-container text-sm max-w-md mb-6 leading-relaxed">
+                            A comprehensive guide for families on identifying symptoms, understanding medical responses, and the stages of treatment in the ICU.
+                        </p>
+<button class="bg-white text-primary px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:scale-105 transition-transform">
+                            Read the Guide <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Secondary Card -->
+<div class="md:col-span-4 rounded-xl bg-surface-container-lowest p-6 flex flex-col justify-between hover:bg-surface-bright transition-colors group">
+<div>
+<div class="h-12 w-12 rounded-xl bg-secondary-container flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="monitor_heart">monitor_heart</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-3">Understanding Your Vitals</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                            Learn what BP, Heart Rate, and SpO2 mean in the context of sepsis monitoring and why they change.
+                        </p>
+</div>
+<a class="text-secondary font-bold flex items-center gap-1 group-hover:gap-2 transition-all" href="#">
+                        Open glossary <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+<!-- Bento Card: Recovery -->
+<div class="md:col-span-4 rounded-xl bg-tertiary-container text-white p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="self_care" style="font-variation-settings: 'FILL' 1;">self_care</span>
+<h3 class="text-xl font-bold mb-3">Post-ICU Recovery</h3>
+<p class="text-on-tertiary-container text-sm leading-relaxed">
+                            The road to recovery continues after the hospital. Learn about Post-Intensive Care Syndrome (PICS) and physical therapy milestones.
+                        </p>
+</div>
+<div class="mt-8 flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full border-2 border-tertiary-container overflow-hidden">
+<img alt="Specialist" class="w-full h-full object-cover" data-alt="close up headshot of a friendly young male doctor with short dark hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPBooEVLPMRRv4CtP5vHCPhNJ9mzVxMsDl_vnA53-jGzOiIb8_hWbK1prs6mvbsb_wGkDbeILXoiFd62ZfTD8havNBeRgALqx6GouKOSoVnauSQmwBijutkJTWr1SB0SASa3aL3Zb_HZyU7mJo928QCUh0_46lYfmid7ITj_5lS7velmR3QK7ZpXYzkUv3S5qwy-8tB17ii0mn6fa3vAGY3kfgMamiCV_ZpMM2uJhdo_aIOMzEWt7ar6_CnXHVfepqx1wi0rEpqOo"/>
+</div>
+<div class="h-8 w-8 rounded-full border-2 border-tertiary-container overflow-hidden">
+<img alt="Specialist" class="w-full h-full object-cover" data-alt="close up headshot of a smiling female healthcare worker with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB0TkgZfPU4sqGqlX2uS_j7QXZvF4VHY2O2Vlr4lLdz1ZJUqJXEI-3H9I30ZZ_TZOKhi9tBKi7ELPlrf14CaxQq5DQpTKj2_OnXEIkOZ3RyjwmVcEbdUYQ-bCJPWzewO0o1v2Y9pwi0pGbS-8OtZ7jhTw1j2sm9-NNngcCh0_pocJqW5Is1P6NerQtJtVW9lFvfhShycP4MFotv-Z1rTmWUveD_tWuR7HBB8j7dZAntD7Y1WLpomyuayv7caaZ-8ABF7Ug2b4YI9M"/>
+</div>
+</div>
+<span class="text-xs font-semibold">Talk to a specialist</span>
+</div>
+</div>
+<!-- Bento Card: Video Section -->
+<div class="md:col-span-5 rounded-xl bg-surface-container-high p-8 flex flex-col">
+<div class="aspect-video bg-slate-300 rounded-lg mb-6 overflow-hidden relative group cursor-pointer">
+<img alt="Video Thumbnail" class="w-full h-full object-cover" data-alt="abstract soft medicine background with floating protein structures and blue light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvbEt2BiVufgsatPW61L1vD_5EUbcj6uEoXOPYKIPChCR5hI6l2oVOWSkqOucUnvc0FuovRmIqsM4sJx4ma87GjsyB9mkmsfUE0iUHKs4nwz03eUARdhozjBolfw0hBOmPXBAFO1scsIjTMr9EdyQRRA9WeM4VGYnp92bdOUlkczUN281KuWEv3Qgj6OfZcGTKIijtVMomxFKp1UsROipEKcfKm9XU6ASDT4tErCnHmh1d6OYigReInpZGaHp325W2XJ43lmiO1OY"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="h-16 w-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white scale-100 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Video: The First 24 Hours</h3>
+<p class="text-on-surface-variant text-sm mb-4">A visual walkthrough of the sepsis protocol and what to expect during the stabilization phase.</p>
+<div class="flex items-center gap-4 text-xs font-bold text-slate-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 4:20 MIN</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span> 1.2K VIEWS</span>
+</div>
+</div>
+<!-- Bento Card: FAQ/Support -->
+<div class="md:col-span-3 rounded-xl bg-surface-container-lowest border-2 border-dashed border-outline-variant p-6 flex flex-col justify-center items-center text-center">
+<div class="h-16 w-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-3xl" data-icon="help_center">help_center</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface mb-2">Still have questions?</h3>
+<p class="text-on-surface-variant text-xs mb-6 px-2">Our support team is available 24/7 for families.</p>
+<button class="w-full py-2 bg-surface-container-high text-on-surface text-sm font-bold rounded-lg hover:bg-surface-container-highest transition-colors">
+                        Message Nurse
+                    </button>
+</div>
+</div>
+<!-- Downloadable Resources Section -->
+<section class="mt-16">
+<h2 class="text-2xl font-bold text-primary mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    Printable Checklists
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-slate-100 group hover:border-primary transition-all">
+<div class="h-10 w-10 bg-error-container text-error rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm text-on-surface">Home Care Checklist</p>
+<p class="text-[10px] text-on-surface-variant">PDF • 1.2 MB</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-slate-100 group hover:border-primary transition-all">
+<div class="h-10 w-10 bg-secondary-container text-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm text-on-surface">Vital Signs Tracker</p>
+<p class="text-[10px] text-on-surface-variant">PDF • 0.8 MB</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-slate-100 group hover:border-primary transition-all">
+<div class="h-10 w-10 bg-primary-fixed text-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm text-on-surface">ICU Vocabulary Guide</p>
+<p class="text-[10px] text-on-surface-variant">PDF • 2.4 MB</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Mobile Bottom NavBar -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-50/90 backdrop-blur-lg flex justify-around items-center py-3 px-6 z-50">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold">Overview</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-[10px] font-bold">Patients</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-blue-700">
+<span class="material-symbols-outlined" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="text-[10px] font-bold">Resources</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</div>
+</body></html>

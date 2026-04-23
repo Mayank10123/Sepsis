@@ -1,0 +1,25 @@
+/* ===== Clinical Analytics CSS ===== */
+
+.analytics-page { padding: 32px; background: var(--sg-surface); min-height: 100vh; }
+.analytics-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+.analytics-header .header-left { display: flex; align-items: center; gap: 20px; }
+.analytics-header h1 { font-size: 24px; font-weight: 800; }
+
+.analytics-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px; }
+.analytics-stats-row .stat-card { display: flex; align-items: center; gap: 20px; }
+.stat-icon-bg { width: 56px; height: 56px; border-radius: var(--sg-radius-lg); background: var(--sg-surface-container-low); display: flex; align-items: center; justify-content: center; color: var(--sg-primary); }
+.stat-icon-bg .material-symbols-outlined { font-size: 28px; }
+.stat-info { display: flex; flex-direction: column; gap: 2px; }
+.s-label { font-size: 11px; font-weight: 700; color: var(--sg-outline); text-transform: uppercase; letter-spacing: 1px; }
+.s-val { font-size: 24px; font-weight: 800; font-family: var(--sg-font-headline); }
+.s-trend.success { font-size: 11px; color: var(--sg-stable); font-weight: 700; }
+
+.analytics-main-row { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+.chart-section { padding: 32px; }
+.chart-box { height: 320px; margin-top: 24px; }
+
+.insight-panel { padding: 24px; background: var(--sg-primary-fixed); border: none; }
+.insight-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.insight-head .material-symbols-outlined { color: var(--sg-primary); }
+.ai-quote { font-size: 14px; font-weight: 500; font-style: italic; color: var(--sg-on-primary-fixed-variant); line-height: 1.6; margin-bottom: 24px; }
+.insight-actions { display: flex; flex-direction: column; gap: 12px; }

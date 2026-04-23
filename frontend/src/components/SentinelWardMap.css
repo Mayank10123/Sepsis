@@ -1,0 +1,77 @@
+/* ===== Ward Map CSS ===== */
+
+.ward-map-widget { padding: 24px; background: white; }
+.map-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.map-title { display: flex; align-items: center; gap: 8px; }
+.map-title h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.map-legend { display: flex; gap: 12px; }
+.leg-item { display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; color: var(--sg-outline); text-transform: uppercase; }
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot.low { background: var(--sg-stable); }
+.dot.high { background: var(--sg-error); }
+
+.ward-grid-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--sg-surface-container-low);
+  padding: 20px;
+  border-radius: var(--sg-radius-lg);
+  position: relative;
+}
+
+.ward-hallway {
+  height: 40px;
+  background: white;
+  border: 1px dashed var(--sg-outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--sg-outline);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.rooms-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.room-node {
+  height: 60px;
+  background: white;
+  border-radius: var(--sg-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.room-num { font-size: 14px; font-weight: 800; color: var(--sg-on-surface); }
+
+.room-node.low { border-color: var(--sg-surface-container-high); }
+.room-node.medium { border-color: var(--sg-watch); background: var(--sg-primary-fixed); }
+.room-node.high { 
+  border-color: var(--sg-error); 
+  background: var(--sg-risk-high-bg);
+}
+
+.room-alert-pulse {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  background: var(--sg-error);
+  border-radius: 50%;
+  animation: sg-pulse 1.5s infinite;
+}
+
+.map-footer { margin-top: 20px; text-align: center; }
+.map-footer p { font-size: 11px; color: var(--sg-outline); font-weight: 600; }
