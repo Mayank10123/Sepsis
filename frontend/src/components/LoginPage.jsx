@@ -80,6 +80,7 @@ export default function LoginPage() {
 
             <p className="brand-subtitle">
               Access live monitoring and AI-driven alerts.
+              Use (doctor@sg.ai) #demo
             </p>
           </div>
 
@@ -199,7 +200,7 @@ export default function LoginPage() {
               <button type="submit" disabled={loading} className="login-submit-btn">
                 {loading ? (
                   <span className="submit-loading">
-                    <span className="sg-spinner" style={{width: 20, height: 20, borderWidth: 2, borderTopColor: '#fff'}}></span>
+                    <span className="sg-spinner" style={{ width: 20, height: 20, borderWidth: 2, borderTopColor: '#fff' }}></span>
                     Signing In...
                   </span>
                 ) : (
