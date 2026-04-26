@@ -20,8 +20,18 @@
 .nutri-pic p { font-size: 10px; font-weight: 800; }
 .nutri-feedback { font-size: 12px; color: var(--sg-on-surface-variant); }
 
-.audio-control { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.ripple-icon { font-size: 48px; color: #10b981; animation: sg-pulse 2s infinite; }
+.audio-control { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 10px 0; }
+.ripple-container { position: relative; width: 64px; height: 64px; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; }
+.ripple-container.active::before { content: ''; position: absolute; width: 100%; height: 100%; border: 2px solid #10b981; border-radius: 50%; animation: sg-ripple 2s linear infinite; }
+.ripple-icon { font-size: 32px; color: #10b981; z-index: 2; }
+
+.mini-visualizer { display: flex; gap: 4px; height: 12px; margin-top: 8px; }
+.v-bar { width: 3px; background: #10b981; border-radius: 2px; animation: v-bar-dance 0.6s ease-in-out infinite; }
+.v-bar:nth-child(2) { animation-delay: 0.2s; }
+.v-bar:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes sg-ripple { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2); opacity: 0; } }
+@keyframes v-bar-dance { 0%, 100% { height: 4px; } 50% { height: 12px; } }
 
 .why-card { display: flex; gap: 16px; align-items: center; text-align: left; padding: 16px; background: var(--sg-risk-low-bg); border-radius: var(--sg-radius-lg); width: 100%; }
 .pill-icon { width: 44px; height: 44px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--sg-primary); }

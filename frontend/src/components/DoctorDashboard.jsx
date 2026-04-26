@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import SentinelWardMap from './SentinelWardMap';
+import ClinicalIntelligenceSuite from './ClinicalIntelligenceSuite';
+import NursingDispatch from './NursingDispatch';
 import './DoctorDashboard.css';
 
 const DoctorDashboard = () => {
   const navigate = useNavigate();
   const [docName] = useState(localStorage.getItem('name') || 'Dr. Jameson');
   const [activeTab, setActiveTab] = useState('overview'); // overview, patients, analytics
-  const [showNotifications, setShowNotifications] = useState(false);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -25,6 +27,49 @@ const DoctorDashboard = () => {
     { id: 2, type: 'positive', badge: 'STABLE', time: '45m ago', title: 'Vitals Stabilized (#18)', message: 'Elena’s BP is back in target range (MAP 68 mmHg).' },
     { id: 3, type: 'info', badge: 'PROTOCOL', time: '1h ago', title: 'Hour-1 Bundle Met', message: 'Antibiotics administered for high-risk triage #09.' }
   ];
+
+  const [todos, setTodos] = useState([
+    { id: 1, task: 'Review Bed 42 Vitals spike', priority: 'High', deadline: '15:30', done: false, notes: '' },
+    { id: 2, task: 'Approve Ceftriaxone for Room 89', priority: 'Medium', deadline: '16:00', done: false, notes: '' },
+    { id: 3, task: 'Sign discharge for Elena Rodriguez', priority: 'Low', deadline: 'ASAP', done: false, notes: '' }
+  ]);
+
+  const [showTaskForm, setShowTaskForm] = useState(false);
+  const [newTask, setNewTask] = useState({ topic: '', priority: 'High', deadline: '' });
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [notifications, setNotifications] = useState([
+    { id: 1, title: 'CRITICAL: Bed 42 SpO2', msg: 'Oxygen saturation dropped to 88%. Check Biometric Vest.', type: 'critical', time: '2m ago', read: false },
+    { id: 2, title: 'New Lab Results', msg: 'Lactate levels for Jameson Blake (ICU-3) are now available.', type: 'info', time: '15m ago', read: false },
+    { id: 3, title: 'Nurse Assigned', msg: 'Nurse Elena has been assigned to Ward 2.', type: 'success', time: '1h ago', read: true }
+  ]);
+
+  const unreadCount = notifications.filter(n => !n.read).length;
+
+  const toggleTodo = (id) => {
+    setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));
+  };
+
+  const handleAddNote = (id, note) => {
+    setTodos(todos.map(t => t.id === id ? { ...t, notes: note } : t));
+  };
+
+  const handleCreateTask = (e) => {
+    e.preventDefault();
+    if (!newTask.topic) return;
+    
+    const taskObj = {
+      id: Date.now(),
+      task: newTask.topic,
+      priority: newTask.priority,
+      deadline: newTask.deadline || 'No Deadline',
+      notes: '',
+      done: false
+    };
+    
+    setTodos([taskObj, ...todos]);
+    setShowTaskForm(false);
+    setNewTask({ topic: '', priority: 'High', deadline: '' });
+  };
 
   const renderOverview = () => (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="doc-content-grid">
@@ -91,6 +136,98 @@ const DoctorDashboard = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Clinical Action Engine (Todo) */}
+        <div className="todo-container sg-card-elevated">
+          <div className="todo-header">
+            <h3>Clinical Action Engine</h3>
+            <span className="todo-count">{todos.filter(t => !t.done).length} Pending</span>
+          </div>
+          <div className="todo-list">
+            {todos.map(todo => (
+              <div key={todo.id} className={`todo-item ${todo.done ? 'done' : ''} ${todo.priority.toLowerCase()}`}>
+                <button className="todo-check" onClick={() => toggleTodo(todo.id)}>
+                   <span className="material-symbols-outlined">
+                     {todo.done ? 'check_circle' : 'radio_button_unchecked'}
+                   </span>
+                </button>
+                <div className="todo-body">
+                   <div className="todo-text-group">
+                      <strong>{todo.task}</strong>
+                      <span className="todo-meta">{todo.deadline && `🕒 ${todo.deadline}`}</span>
+                   </div>
+                   <div className="todo-actions-group">
+                      <span className="todo-priority-tag">{todo.priority}</span>
+                      <button className="note-toggle-btn" onClick={() => {
+                        const n = prompt("Add Clinical Note:", todo.notes);
+                        if (n !== null) handleAddNote(todo.id, n);
+                      }}>
+                         <span className="material-symbols-outlined">edit_note</span>
+                      </button>
+                   </div>
+                </div>
+                {todo.notes && (
+                  <div className="todo-note-display">
+                     <span className="material-symbols-outlined">sticky_note_2</span>
+                     {todo.notes}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <AnimatePresence>
+            {showTaskForm ? (
+              <motion.form 
+                initial={{ height: 0, opacity: 0 }} 
+                animate={{ height: 'auto', opacity: 1 }} 
+                exit={{ height: 0, opacity: 0 }}
+                className="task-composer-form"
+                onSubmit={handleCreateTask}
+              >
+                 <div className="composer-row">
+                    <input 
+                      type="text" 
+                      placeholder="Task Topic (e.g. Review MRI)" 
+                      className="sg-input"
+                      value={newTask.topic}
+                      onChange={(e) => setNewTask({...newTask, topic: e.target.value})}
+                    />
+                    <select 
+                      className="sg-input"
+                      value={newTask.priority}
+                      onChange={(e) => setNewTask({...newTask, priority: e.target.value})}
+                    >
+                       <option value="High">High Priority</option>
+                       <option value="Medium">Medium</option>
+                       <option value="Low">Low</option>
+                    </select>
+                 </div>
+                 <div className="composer-row">
+                    <input 
+                      type="text" 
+                      placeholder="Deadline (e.g. 14:00 PM)" 
+                      className="sg-input"
+                      value={newTask.deadline}
+                      onChange={(e) => setNewTask({...newTask, deadline: e.target.value})}
+                    />
+                    <div className="sync-toggle">
+                       <input type="checkbox" id="nurseSync" />
+                       <label htmlFor="nurseSync">Broadcast to All Nurses</label>
+                    </div>
+                 </div>
+                 <div className="composer-actions">
+                    <button type="submit" className="sg-btn sg-btn-primary">CREATE & SYNC</button>
+                    <button type="button" className="sg-btn sg-btn-outline" onClick={() => setShowTaskForm(false)}>CANCEL</button>
+                 </div>
+              </motion.form>
+            ) : (
+              <button className="add-task-btn" onClick={() => setShowTaskForm(true)}>
+                 <span className="material-symbols-outlined">add</span> COMPOSE NEW CLINICAL TASK
+              </button>
+            )}
+          </AnimatePresence>
         </div>
       </motion.div>
 
@@ -203,6 +340,15 @@ const DoctorDashboard = () => {
             <button className={`nav-link ${activeTab === 'patients' ? 'active' : ''}`} onClick={() => setActiveTab('patients')}>
               <span className="material-symbols-outlined">group</span> My Patients
             </button>
+            <button className={`nav-link ${activeTab === 'intelligence' ? 'active' : ''}`} onClick={() => setActiveTab('intelligence')}>
+              <span className="material-symbols-outlined">psychology</span> Clinical Intelligence
+            </button>
+            <button className={`nav-link ${activeTab === 'ward' ? 'active' : ''}`} onClick={() => setActiveTab('ward')}>
+              <span className="material-symbols-outlined">map</span> Ward Heatmap
+            </button>
+            <button className={`nav-link ${activeTab === 'nursing' ? 'active' : ''}`} onClick={() => setActiveTab('nursing')}>
+              <span className="material-symbols-outlined">assignment_ind</span> Nursing Dispatch
+            </button>
             <Link to="/analytics" className="nav-link">
               <span className="material-symbols-outlined">monitoring</span> Performance
             </Link>
@@ -227,17 +373,58 @@ const DoctorDashboard = () => {
         {/* Top Bar */}
         <header className="doc-topbar">
           <div className="topbar-left">
-            <div className="topbar-title">{activeTab === 'overview' ? 'Clinical Overview' : 'Patient Roster'}</div>
+            <div className="topbar-title">
+              {activeTab === 'overview' ? 'Clinical Overview' : 
+               activeTab === 'patients' ? 'Patient Roster' : 
+               activeTab === 'intelligence' ? 'Clinical Intelligence' : 
+               activeTab === 'ward' ? 'Ward Heatmap' : 'Nursing Command'}
+            </div>
           </div>
           <div className="topbar-right">
             <div className="voice-hint-pill" onClick={() => navigate('/patient/42')}>
                <span className="material-symbols-outlined">settings_voice</span>
                <span>"Hey Sentinel..."</span>
             </div>
-            <button className="topbar-icon-btn">
-              <span className="material-symbols-outlined">notifications</span>
-              <span className="notif-dot"></span>
-            </button>
+            
+            <div className="notif-hub-wrapper">
+               <button className="topbar-icon-btn" onClick={() => setShowNotifications(!showNotifications)}>
+                  <span className="material-symbols-outlined">notifications</span>
+                  {unreadCount > 0 && <span className="notif-dot"></span>}
+               </button>
+               
+               <AnimatePresence>
+                  {showNotifications && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                      className="notif-dropdown sg-card"
+                    >
+                       <div className="notif-dropdown-header">
+                          <h4>Sentinel Alert Hub</h4>
+                          <button className="mark-read-btn" onClick={() => setNotifications(notifications.map(n => ({...n, read: true})))}>Mark all as read</button>
+                       </div>
+                       <div className="notif-dropdown-list">
+                          {notifications.map(n => (
+                            <div key={n.id} className={`notif-dropdown-item ${n.read ? 'read' : ''} ${n.type}`}>
+                               <div className="notif-item-icon">
+                                  <span className="material-symbols-outlined">
+                                     {n.type === 'critical' ? 'warning' : n.type === 'success' ? 'check_circle' : 'info'}
+                                  </span>
+                               </div>
+                               <div className="notif-item-content">
+                                  <div className="notif-item-title">{n.title}</div>
+                                  <div className="notif-item-msg">{n.msg}</div>
+                                  <div className="notif-item-time">{n.time}</div>
+                               </div>
+                            </div>
+                          ))}
+                       </div>
+                    </motion.div>
+                  )}
+               </AnimatePresence>
+            </div>
+
             <div className="topbar-avatar" onClick={() => navigate('/settings')}>
               JD
             </div>
@@ -247,6 +434,23 @@ const DoctorDashboard = () => {
         <AnimatePresence mode="wait">
           {activeTab === 'overview' && renderOverview()}
           {activeTab === 'patients' && renderPatients()}
+          {activeTab === 'intelligence' && (
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} className="intelligence-view">
+               <ClinicalIntelligenceSuite extended={true} />
+            </motion.div>
+          )}
+
+          {activeTab === 'ward' && (
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} className="ward-view">
+               <SentinelWardMap />
+            </motion.div>
+          )}
+
+          {activeTab === 'nursing' && (
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} className="nursing-view">
+               <NursingDispatch />
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
     </div>

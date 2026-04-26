@@ -23,6 +23,8 @@ export default function DoctorViewPatient42Detail() {
   const [activeTab, setActiveTab] = useState('all');
   const [showWizard, setShowWizard] = useState(false);
   const [showNotifs, setShowNotifs] = useState(false);
+  const [labsOrdered, setLabsOrdered] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
 
   const patient = {
     id: 42,
@@ -74,13 +76,21 @@ export default function DoctorViewPatient42Detail() {
             </button>
             <NotificationCenter isOpen={showNotifs} onClose={() => setShowNotifs(false)} />
           </div>
-          <button className="sg-btn sg-btn-outline">
-            <span className="material-symbols-outlined">biotech</span>
-            Order Labs
+          <button 
+            className={`sg-btn sg-btn-outline ${labsOrdered ? 'executed' : ''}`}
+            onClick={() => { setLabsOrdered(true); setTimeout(() => setLabsOrdered(false), 3000); }}
+            disabled={labsOrdered}
+          >
+            <span className="material-symbols-outlined">{labsOrdered ? 'check_circle' : 'biotech'}</span>
+            {labsOrdered ? 'Labs Requested' : 'Order Labs'}
           </button>
-          <button className="sg-btn sg-btn-outline">
-            <span className="material-symbols-outlined">chat</span>
-            Message Team
+          <button 
+            className={`sg-btn sg-btn-outline ${messageSent ? 'executed' : ''}`}
+            onClick={() => { setMessageSent(true); setTimeout(() => setMessageSent(false), 3000); }}
+            disabled={messageSent}
+          >
+            <span className="material-symbols-outlined">{messageSent ? 'done_all' : 'chat'}</span>
+            {messageSent ? 'Team Notified' : 'Message Team'}
           </button>
           <button className="sg-btn sg-btn-danger" onClick={() => setShowWizard(true)}>
             <span className="material-symbols-outlined">emergency_home</span>

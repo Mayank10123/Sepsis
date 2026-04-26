@@ -43,6 +43,101 @@
   letter-spacing: -0.3px;
 }
 
+/* ===== Platinum Clinical Action Engine (Beautiful) ===== */
+.todo-container { 
+  margin-top: 32px; 
+  padding: 28px; 
+  background: rgba(255, 255, 255, 0.7); 
+  backdrop-filter: blur(12px); 
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--sg-radius-xl); 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.todo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.todo-header h3 { 
+  font-size: 13px; 
+  font-weight: 900; 
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
+  color: var(--sg-primary); 
+  margin: 0; 
+}
+.todo-count { 
+  font-size: 10px; 
+  font-weight: 900; 
+  background: var(--sg-primary-fixed); 
+  color: var(--sg-primary); 
+  padding: 6px 14px; 
+  border-radius: var(--sg-radius-full); 
+}
+
+.todo-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+.todo-item { 
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  padding: 18px; 
+  background: white; 
+  border-radius: var(--sg-radius-lg); 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  border-left: 5px solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.todo-item:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06); }
+
+.todo-item.high { border-left-color: #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.1); }
+.todo-item.medium { border-left-color: #f59e0b; }
+.todo-item.low { border-left-color: #10b981; }
+
+.todo-item.done { opacity: 0.6; filter: grayscale(1); transform: scale(0.98); background: #f8fafc; }
+
+.todo-check { 
+  width: 24px; height: 24px; border-radius: 6px; 
+  display: flex; align-items: center; justify-content: center; 
+  cursor: pointer; transition: all 0.2s; border: none; background: #f1f5f9;
+}
+.todo-check .material-symbols-outlined { font-size: 18px; color: var(--sg-outline); }
+.todo-item.done .todo-check { background: var(--sg-primary); }
+.todo-item.done .todo-check .material-symbols-outlined { color: white; }
+
+.todo-body { flex: 1; display: flex; justify-content: space-between; align-items: center; }
+.todo-text-group { display: flex; flex-direction: column; gap: 4px; }
+.todo-text-group strong { font-size: 14px; font-weight: 700; color: #1e293b; }
+.todo-meta { font-size: 10px; color: var(--sg-outline); font-weight: 800; }
+
+.todo-actions-group { display: flex; align-items: center; gap: 12px; }
+.note-toggle-btn { background: transparent; border: none; cursor: pointer; color: var(--sg-outline); transition: all 0.2s; }
+.note-toggle-btn:hover { color: var(--sg-primary); }
+
+.todo-note-display { width: 100%; margin-top: 12px; padding: 10px 14px; background: #fffbeb; border-radius: 8px; font-size: 11px; color: #92400e; border: 1px solid #fef3c7; display: flex; gap: 8px; align-items: center; }
+.todo-note-display .material-symbols-outlined { font-size: 16px; color: #f59e0b; }
+
+.todo-priority-tag { font-size: 9px; font-weight: 900; background: #f1f5f9; padding: 4px 8px; border-radius: 4px; color: var(--sg-outline); }
+
+.add-task-btn { 
+  width: 100%; padding: 14px; 
+  background: var(--sg-surface-container-low); 
+  border: 2px dashed var(--sg-outline); 
+  border-radius: var(--sg-radius-lg); 
+  color: var(--sg-outline); 
+  font-size: 11px; font-weight: 900; 
+  letter-spacing: 1px;
+  display: flex; align-items: center; justify-content: center; gap: 10px; 
+  cursor: pointer; transition: all 0.3s; 
+}
+/* ===== Task Composer Form ===== */
+.task-composer-form { margin-top: 16px; padding: 20px; background: #f8fafc; border-radius: var(--sg-radius-lg); border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+.composer-row { display: flex; gap: 12px; }
+.composer-row .sg-input { flex: 1; padding: 12px; font-size: 13px; }
+
+.sync-toggle { display: flex; align-items: center; gap: 10px; flex: 1; background: white; padding: 0 12px; border-radius: var(--sg-radius-md); border: 1.5px solid #e2e8f0; }
+.sync-toggle label { font-size: 11px; font-weight: 800; color: var(--sg-primary); cursor: pointer; }
+
+.composer-actions { display: flex; gap: 12px; margin-top: 8px; }
+.composer-actions button { flex: 1; }
+
 .sidebar-profile {
   display: flex;
   align-items: center;
@@ -243,6 +338,35 @@
   background: var(--sg-risk-high);
   border: 2px solid white;
 }
+.notif-hub-wrapper { position: relative; }
+.notif-dropdown { 
+  position: absolute; top: 50px; right: 0; width: 360px; 
+  background: white; border-radius: var(--sg-radius-lg); 
+  border: 1px solid var(--sg-surface-container-high); 
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12); 
+  z-index: 1000; overflow: hidden; 
+}
+
+.notif-dropdown-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--sg-surface-container-high); background: #f8fafc; }
+.notif-dropdown-header h4 { font-size: 13px; font-weight: 800; color: var(--sg-primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.mark-read-btn { background: transparent; border: none; font-size: 11px; font-weight: 700; color: var(--sg-outline); cursor: pointer; }
+.mark-read-btn:hover { color: var(--sg-primary); text-decoration: underline; }
+
+.notif-dropdown-list { max-height: 400px; overflow-y: auto; }
+.notif-dropdown-item { display: flex; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--sg-surface-container); transition: background 0.2s; cursor: pointer; }
+.notif-dropdown-item:hover { background: #f1f5f9; }
+.notif-dropdown-item.read { opacity: 0.6; }
+
+.notif-item-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.notif-dropdown-item.critical .notif-item-icon { background: #fee2e2; color: #ef4444; }
+.notif-dropdown-item.success .notif-item-icon { background: #dcfce7; color: #10b981; }
+.notif-dropdown-item.info .notif-item-icon { background: #e0f2fe; color: #0ea5e9; }
+
+.notif-item-content { flex: 1; }
+.notif-item-title { font-size: 13px; font-weight: 800; color: #1e293b; margin-bottom: 2px; }
+.notif-item-msg { font-size: 12px; color: var(--sg-on-surface-variant); line-height: 1.4; margin-bottom: 4px; }
+.notif-item-time { font-size: 10px; font-weight: 600; color: var(--sg-outline); }
+
 .topbar-avatar {
   width: 42px;
   height: 42px;

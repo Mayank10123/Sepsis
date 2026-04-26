@@ -6,15 +6,54 @@
 .pre-title h3 { font-size: 15px; font-weight: 800; color: var(--sg-on-surface); margin: 0; }
 .pre-title p { font-size: 10px; font-weight: 700; color: var(--sg-outline); text-transform: uppercase; letter-spacing: 1px; margin: 0; }
 
-.pre-list { display: flex; flex-direction: column; gap: 20px; }
-.pre-item { display: flex; gap: 16px; align-items: flex-start; }
-.pre-icon { width: 42px; height: 42px; background: var(--sg-surface-container-low); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--sg-primary); flex-shrink: 0; }
-.pre-text h4 { font-size: 14px; margin-bottom: 4px; }
-.pre-text p { font-size: 12px; color: var(--sg-on-surface-variant); line-height: 1.4; margin-bottom: 12px; }
+.pre-list { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 24px; 
+}
+.pre-item { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  padding: 32px 24px; 
+  background: white; 
+  border-radius: var(--sg-radius-xl); 
+  border: 1.5px solid #f1f5f9; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+.pre-item:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0, 63, 135, 0.08); border-color: var(--sg-primary); }
 
-.pre-confirm { background: transparent; border: 1.2px solid var(--sg-primary); color: var(--sg-primary); padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; cursor: pointer; transition: all 0.2s; }
-.pre-confirm:hover { background: var(--sg-primary); color: white; }
+.pre-icon { 
+  width: 56px; height: 56px; background: var(--sg-primary-fixed); border-radius: 50%; 
+  display: flex; align-items: center; justify-content: center; color: var(--sg-primary); 
+  flex-shrink: 0; margin-bottom: 20px; 
+}
+.pre-text h4 { font-size: 16px; font-weight: 800; margin-bottom: 12px; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5px; }
+.pre-text p { font-size: 13px; color: var(--sg-on-surface-variant); line-height: 1.6; margin-bottom: 24px; min-height: 60px; }
 
-.pre-item.nutrition .pre-icon { color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
-.pre-item.nutrition .pre-confirm { border-color: #f59e0b; color: #f59e0b; }
-.pre-item.nutrition .pre-confirm:hover { background: #f59e0b; color: white; }
+.pre-confirm { width: 100%; padding: 12px; background: transparent; border: 1.5px solid var(--sg-primary); color: var(--sg-primary); border-radius: var(--sg-radius-md); font-size: 11px; font-weight: 900; cursor: pointer; transition: all 0.2s; letter-spacing: 1px; }
+.pre-confirm:hover:not(.done) { background: var(--sg-primary); color: white; }
+.audio-player-mini { display: flex; align-items: center; gap: 16px; margin-top: 12px; padding: 12px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; }
+.play-btn { display: flex; align-items: center; gap: 8px; background: white; border: 1.5px solid var(--sg-primary); color: var(--sg-primary); padding: 8px 16px; border-radius: var(--sg-radius-full); font-size: 11px; font-weight: 800; cursor: pointer; transition: all 0.3s; }
+.play-btn.playing { background: var(--sg-primary); color: white; border-color: var(--sg-primary); box-shadow: 0 0 15px rgba(0, 63, 135, 0.3); }
+.play-btn:hover { transform: scale(1.02); }
+
+.vitals-visualizer { display: flex; align-items: flex-end; gap: 3px; height: 16px; }
+.vitals-visualizer .bar { width: 3px; background: var(--sg-primary); border-radius: 1px; animation: bar-bounce 0.8s ease-in-out infinite; }
+.vitals-visualizer .bar:nth-child(2) { animation-delay: 0.2s; height: 100%; }
+.vitals-visualizer .bar:nth-child(3) { animation-delay: 0.4s; height: 60%; }
+.vitals-visualizer .bar:nth-child(4) { animation-delay: 0.1s; height: 80%; }
+
+@keyframes bar-bounce {
+  0%, 100% { height: 4px; }
+  50% { height: 100%; }
+}
+
+.pre-confirm.done { border-color: #10b981; color: #10b981; cursor: default; }
+
+.pre-item.executed .pre-icon { background: #d1fae5; color: #10b981; }
+.executed-tag { font-size: 9px; background: #10b981; color: white; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+
+.sparkles { animation: sg-pulse 2s infinite; }

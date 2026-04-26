@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LoadingScreen from './components/LoadingScreen';
 import GroqChat from './components/GroqChat';
 import './global.css';
 
@@ -13,13 +14,7 @@ const ClinicalReportsAnalytics = lazy(() => import('./components/ClinicalReports
 const SettingsDoctorProfile = lazy(() => import('./components/SettingsDoctorProfile'));
 const SupportHelpDesk = lazy(() => import('./components/SupportHelpDesk'));
 
-// Loading Fallback
-const LoadingFallback = () => (
-  <div className="sg-loading-screen">
-    <div className="sg-spinner"></div>
-    <p>Initializing SepsisGuard Live...</p>
-  </div>
-);
+// Components are lazy-loaded below
 
 // Private Route logic (simplified)
 const PrivateRoute = ({ children, role }) => {
@@ -36,7 +31,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <Suspense fallback={<LoadingFallback />}>
+        <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             

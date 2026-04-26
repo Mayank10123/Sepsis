@@ -1,0 +1,59 @@
+/* ===== Nursing Command & Dispatch CSS ===== */
+
+.nursing-dispatch { padding: 32px; max-width: 1200px; margin: 0 auto; }
+.dispatch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+.header-text h2 { font-size: 24px; color: var(--sg-on-surface); margin-bottom: 4px; }
+.header-text p { color: var(--sg-outline); font-size: 14px; }
+
+.mega-status-badge { background: #065f46; color: #d1fae5; padding: 10px 16px; border-radius: var(--sg-radius-lg); display: flex; align-items: center; gap: 12px; border: 1px solid rgba(16, 185, 129, 0.2); }
+.live-dot-pulse { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: sg-pulse 1.5s infinite; }
+.mega-status-text strong { display: block; font-size: 10px; letter-spacing: 1px; }
+.mega-status-text span { font-size: 9px; opacity: 0.7; font-weight: 800; }
+
+.dispatch-stats { display: flex; gap: 12px; }
+.stat-pill { background: white; padding: 12px 20px; border-radius: var(--sg-radius-lg); box-shadow: var(--sg-shadow-sm); display: flex; flex-direction: column; gap: 4px; }
+.stat-pill span { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--sg-outline); }
+.stat-pill strong { font-size: 18px; color: var(--sg-primary); }
+
+.dispatch-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 24px; }
+
+/* Nurse Roster */
+.nurse-roster h3, .assignment-panel h3 { font-size: 16px; margin-bottom: 20px; color: var(--sg-on-surface); }
+.roster-list { display: flex; flex-direction: column; gap: 12px; }
+.nurse-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: white; border-radius: var(--sg-radius-md); cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
+.nurse-item:hover { transform: translateX(8px); background: var(--sg-surface-container-low); }
+.nurse-item.selected { border-color: var(--sg-primary); background: var(--sg-primary-fixed); }
+
+.nurse-avatar { width: 40px; height: 40px; background: var(--sg-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+.nurse-info { flex: 1; }
+.nurse-info strong { display: block; font-size: 14px; margin-bottom: 2px; }
+.nurse-info span { font-size: 11px; color: var(--sg-outline); }
+
+.workload-indicator { width: 60px; text-align: right; }
+.workload-bar { height: 4px; border-radius: 2px; margin-bottom: 4px; }
+.workload-val { font-size: 10px; font-weight: 900; color: var(--sg-outline); }
+
+/* Assignment Panel */
+.assignment-panel { padding: 32px; display: flex; flex-direction: column; justify-content: center; min-height: 400px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 12px; font-weight: 800; color: var(--sg-outline); margin-bottom: 8px; text-transform: uppercase; }
+.mega-cloud-zone { display: flex; align-items: center; gap: 16px; padding: 20px; border: 2px dashed #e11d48; /* MEGA Red */ background: rgba(225, 29, 72, 0.02); border-radius: var(--sg-radius-md); color: #e11d48; cursor: pointer; margin-bottom: 24px; transition: all 0.3s; }
+.mega-cloud-zone:hover { background: rgba(225, 29, 72, 0.05); }
+
+.mega-text strong { display: block; font-size: 13px; }
+.mega-text span { font-size: 11px; opacity: 0.8; }
+
+.mega-progress { width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.mega-bar-fill { height: 4px; background: #e11d48; border-radius: 2px; width: 0; animation: mega-load 2s forwards; }
+.mega-file-active { display: flex; align-items: center; gap: 10px; color: #10b981; width: 100%; justify-content: center; font-weight: 800; font-size: 13px; }
+
+@keyframes mega-load { to { width: 100%; } }
+
+.panel-placeholder { text-align: center; color: var(--sg-outline); }
+.panel-placeholder .material-symbols-outlined { font-size: 64px; margin-bottom: 16px; opacity: 0.3; }
+.panel-placeholder p { font-size: 14px; max-width: 280px; margin: 0 auto; line-height: 1.6; }
+
+.assignment-success { text-align: center; color: #10b981; }
+.success-icon { font-size: 64px; margin-bottom: 16px; }
+.assignment-success h4 { font-size: 20px; margin-bottom: 8px; color: #065f46; }
+.assignment-success p { color: #065f46; opacity: 0.8; }

@@ -1,0 +1,84 @@
+/* ===== Sentinel Platinum Loading Screen ===== */
+
+.platinum-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f8fafc; /* Surgical White */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.geometric-loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--sg-surface-container-high);
+  border-top-color: var(--sg-primary);
+  border-radius: 50%;
+}
+
+.loader-core {
+  width: 24px;
+  height: 24px;
+  background: var(--sg-primary);
+  border-radius: 4px;
+  transform: rotate(45deg);
+  box-shadow: 0 0 20px rgba(var(--sg-primary-rgb), 0.4);
+}
+
+.loader-text {
+  text-align: center;
+}
+
+.loader-text h3 {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--sg-on-surface);
+  margin-bottom: 12px;
+}
+
+.telemetry-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.telemetry-dots span {
+  font-size: 9px;
+  font-weight: 900;
+  color: var(--sg-outline);
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+.telemetry-dots span:nth-child(1) { animation: sg-fade-in 1s infinite alternate; }
+.telemetry-dots span:nth-child(2) { animation: sg-fade-in 1s infinite alternate 0.3s; }
+.telemetry-dots span:nth-child(3) { animation: sg-fade-in 1s infinite alternate 0.6s; }
+
+@keyframes sg-fade-in {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
+}

@@ -13,9 +13,29 @@ import GroqPrescriptiveEngine from './GroqPrescriptiveEngine';
 import SentinelBiometricVest from './SentinelBiometricVest';
 
 export default function PatientDashboard() {
-  const navigate = useNavigate();
+  const [activeView, setActiveView] = useState('status');
   const [userName] = useState(localStorage.getItem('name') || 'Robert Chen');
-  const [activeSection, setActiveSection] = useState('status'); // status, history, resources
+  const [isComposing, setIsComposing] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
+  const [sentTimestamp, setSentTimestamp] = useState('');
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [notifications, setNotifications] = useState([
+    { id: 1, title: 'Healing Milestone!', msg: 'You reached your deep breathing goal for today. Great job!', type: 'success', time: '5m ago', read: false },
+    { id: 2, title: 'Roadmap Updated', msg: 'Dr. Miller added "AR Breathing Games" to your recovery plan.', type: 'info', time: '1h ago', read: false },
+    { id: 3, title: 'Health Tip', msg: 'Remember to stay hydrated. Your kidney metrics are looking optimal.', type: 'info', time: '3h ago', read: true }
+  ]);
+
+  const unreadCount = notifications.filter(n => !n.read).length;
+
+  const handleSendMessage = () => {
+    setIsSending(true);
+    setTimeout(() => {
+      setIsSending(false);
+      setMessageSent(true);
+      setSentTimestamp(new Date().toLocaleTimeString());
+    }, 2000);
+  };
 
   const handleLogout = () => {
     localStorage.clear();
@@ -63,13 +83,50 @@ export default function PatientDashboard() {
           </div>
         </motion.div>
 
-        <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.5 }} className="p-doctor-contact sg-card">
-          <div className="p-doc-avatar">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt8S2D9y-O566EwN5z8_sREm6Ea4O4g_8xZ2F7m6vK5p8G" alt="Dr. Sarah Miller" />
-          </div>
-          <h3>Dr. Sarah Miller</h3>
-          <p className="doc-msg">"Hello Robert, your oxygen levels are looking much better this morning. Keep focusing on your breathing exercises."</p>
-          <button className="sg-btn sg-btn-primary full-width">Message Team</button>
+        <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.5 }} className={`p-doctor-contact sg-card ${isComposing ? 'composing' : ''}`}>
+          <AnimatePresence mode="wait">
+            {!isComposing ? (
+              <motion.div key="contact" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="contact-info">
+                 <div className="p-doc-avatar">
+                   <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt8S2D9y-O566EwN5z8_sREm6Ea4O4g_8xZ2F7m6vK5p8G" alt="Dr. Sarah Miller" />
+                 </div>
+                 <h3>Dr. Sarah Miller</h3>
+                 <p className="doc-msg">"Hello Robert, your oxygen levels are looking much better this morning. Keep focusing on your breathing exercises."</p>
+                 <button className="sg-btn sg-btn-primary full-width" onClick={() => setIsComposing(true)}>Message Team</button>
+              </motion.div>
+            ) : !messageSent ? (
+              <motion.div key="composer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="card-composer">
+                 <div className="composer-header">
+                    <h4>Direct Care-Link</h4>
+                    <button className="close-mini" onClick={() => setIsComposing(false)}>×</button>
+                 </div>
+                 
+                 {isSending ? (
+                   <div className="dispatch-loading mini">
+                      <div className="dispatch-spinner"></div>
+                      <p>Dispatching to ICU...</p>
+                   </div>
+                 ) : (
+                   <>
+                     <div className="symptom-chips mini">
+                        {['Pain', 'Dizziness', 'Chills'].map(s => (
+                          <button key={s} className="symptom-chip" onClick={handleSendMessage}>{s}</button>
+                        ))}
+                     </div>
+                     <textarea placeholder="Type your message..." className="sg-input mini"></textarea>
+                     <button className="sg-btn sg-btn-primary full-width" onClick={handleSendMessage}>SEND MESSAGE</button>
+                   </>
+                 )}
+              </motion.div>
+            ) : (
+              <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="card-success">
+                 <span className="material-symbols-outlined success-icon">verified_user</span>
+                 <h4>SENT</h4>
+                 <p>Log: {sentTimestamp}</p>
+                 <button className="sg-btn sg-btn-outline full-width" onClick={() => { setIsComposing(false); setMessageSent(false); }}>OK</button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </motion.div>
@@ -137,13 +194,50 @@ export default function PatientDashboard() {
           <span className="material-symbols-outlined filled logo-icon">shield_with_heart</span>
           <span className="logo-text">SepsisGuard Live</span>
           <div className="nav-links hide-on-mobile">
-            <button className={activeSection === 'status' ? 'active' : ''} onClick={() => setActiveSection('status')}>My Health Status</button>
-            <button className={activeSection === 'history' ? 'active' : ''} onClick={() => setActiveSection('history')}>Care History</button>
-            <button className={activeSection === 'resources' ? 'active' : ''} onClick={() => setActiveSection('resources')}>Resources</button>
+            <button className={activeView === 'status' ? 'active' : ''} onClick={() => setActiveView('status')}>My Health Status</button>
+            <button className={activeView === 'history' ? 'active' : ''} onClick={() => setActiveView('history')}>Care History</button>
+            <button className={activeView === 'resources' ? 'active' : ''} onClick={() => setActiveView('resources')}>Resources</button>
           </div>
         </div>
         <div className="topnav-right">
-          <button className="icon-btn"><span className="material-symbols-outlined">notifications</span></button>
+          <div className="notif-hub-wrapper">
+             <button className="icon-btn" onClick={() => setShowNotifications(!showNotifications)}>
+                <span className="material-symbols-outlined">notifications</span>
+                {unreadCount > 0 && <span className="notif-dot"></span>}
+             </button>
+             
+             <AnimatePresence>
+                {showNotifications && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                    className="notif-dropdown sg-card"
+                  >
+                     <div className="notif-dropdown-header">
+                        <h4>Your Recovery Feed</h4>
+                        <button className="mark-read-btn" onClick={() => setNotifications(notifications.map(n => ({...n, read: true})))}>Clear all</button>
+                     </div>
+                     <div className="notif-dropdown-list">
+                        {notifications.map(n => (
+                          <div key={n.id} className={`notif-dropdown-item ${n.read ? 'read' : ''} ${n.type}`}>
+                             <div className="notif-item-icon">
+                                <span className="material-symbols-outlined">
+                                   {n.type === 'success' ? 'stars' : 'clinical_notes'}
+                                </span>
+                             </div>
+                             <div className="notif-item-content">
+                                <div className="notif-item-title">{n.title}</div>
+                                <div className="notif-item-msg">{n.msg}</div>
+                                <div className="notif-item-time">{n.time}</div>
+                             </div>
+                          </div>
+                        ))}
+                     </div>
+                  </motion.div>
+                )}
+             </AnimatePresence>
+          </div>
           <button className="avatar-btn" onClick={handleLogout}><span className="material-symbols-outlined filled">account_circle</span></button>
         </div>
       </nav>
@@ -158,23 +252,27 @@ export default function PatientDashboard() {
             <h3>{userName}</h3>
             <p>Patient Portal</p>
           </div>
-          <div className="sidebar-menu">
-            <button className={activeSection === 'status' ? 'active' : ''} onClick={() => setActiveSection('status')}>
-              <span className="material-symbols-outlined">dashboard</span> Overview
-            </button>
-            <button className={activeSection === 'history' ? 'active' : ''} onClick={() => setActiveSection('history')}>
-              <span className="material-symbols-outlined">history</span> Care History
-            </button>
-            <button className={activeSection === 'resources' ? 'active' : ''} onClick={() => setActiveSection('resources')}>
-              <span className="material-symbols-outlined">import_contacts</span> Resources
-            </button>
-          </div>
-          
-          <div className="sidebar-hardware-section" style={{marginTop: 'auto'}}>
+
+          <div className="sidebar-hardware-section">
              <SentinelWatchPairing />
           </div>
 
-          <button className="help-btn" style={{marginTop: '24px'}}>
+          <nav className="p-sidebar-nav">
+             <button className={activeView === 'status' ? 'active' : ''} onClick={() => setActiveView('status')}>
+                <span className="material-symbols-outlined">analytics</span> My Status
+             </button>
+             <button className={activeView === 'healing' ? 'active' : ''} onClick={() => setActiveView('healing')}>
+                <span className="material-symbols-outlined">self_care</span> Healing Center
+             </button>
+             <button className={activeView === 'history' ? 'active' : ''} onClick={() => setActiveView('history')}>
+                <span className="material-symbols-outlined">history</span> Care History
+             </button>
+             <button className={activeView === 'resources' ? 'active' : ''} onClick={() => setActiveView('resources')}>
+                <span className="material-symbols-outlined">library_books</span> Resources
+             </button>
+          </nav>
+          
+          <button className="help-btn" style={{marginTop: 'auto'}}>
             <span className="material-symbols-outlined">live_help</span>
             Help Desk
           </button>
@@ -184,15 +282,21 @@ export default function PatientDashboard() {
         <main className="portal-main">
           <header className="main-header">
             <div className="header-text">
-              <h1>{activeSection === 'status' ? 'My Health Status' : activeSection === 'history' ? 'Care History' : 'Resources'}</h1>
+              <h1>{activeView === 'status' ? 'My Health Status' : activeView === 'history' ? 'Care History' : activeView === 'healing' ? 'Healing Center' : 'Resources'}</h1>
               <span className="update-status"><span className="dot-green"></span> Last updated: 2 min ago</span>
             </div>
           </header>
 
           <AnimatePresence mode="wait">
-            {activeSection === 'status' && renderOverview()}
-            {activeSection === 'history' && renderHistory()}
-            {activeSection === 'resources' && renderResources()}
+            {activeView === 'status' && renderOverview()}
+            {activeView === 'healing' && (
+             <motion.div initial={{opacity:0}} animate={{opacity:1}} className="healing-view">
+                <PatientHealingCenter extended={true} />
+             </motion.div>
+          )}
+
+          {activeView === 'history' && renderHistory()}
+          {activeView === 'resources' && renderResources()}
           </AnimatePresence>
         </main>
       </div>
