@@ -43,6 +43,11 @@ class PatientSignup(BaseModel):
     name: str
     email: str
 
+class LoginRequest(BaseModel):
+    id: str
+    password: str
+    role: str # 'doctor', 'patient', 'family'
+
 router = APIRouter()
 
 # Initialize OAuth
@@ -169,6 +174,60 @@ async def github_callback(request: Request):
         )
     except Exception as e:
         return {"error": str(e)}
+
+@router.post('/login')
+async def general_login(login_data: LoginRequest):
+    """Unified login for all roles using MongoDB"""
+    try:
+        # Fallback for generic demo (Always allowed for rapid testing)
+        if login_data.id == 'doctor@sg.ai' and login_data.password == '#demo':
+            jwt_token = create_jwt_token('DOCTOR_DEMO', 'doctor')
+            return {'token': jwt_token, 'role': 'doctor', 'name': 'Dr. Sarah Miller', 'id': 'DOCTOR_DEMO'}
+        
+        if login_data.id == 'family@sg.ai' and login_data.password == '#demo':
+            jwt_token = create_jwt_token('FAMILY_DEMO', 'family')
+            return {'token': jwt_token, 'role': 'family', 'name': 'Chen Family', 'id': 'FAM-042'}
+
+        database = await get_database()
+        
+        # Determine collection based on role
+        collection_name = 'patients' if login_data.role == 'patient' else 'users'
+        collection = database[collection_name]
+        
+        # Find user
+        user = await collection.find_one({'_id': login_data.id})
+        
+        if not user:
+            raise HTTPException(status_code=401, detail=f"No {login_data.role} found with ID: {login_data.id}")
+        
+        # Verify password (assuming hashed in DB)
+        stored_password = user.get('password', '')
+        if not stored_password:
+            raise HTTPException(status_code=401, detail="Account not properly configured. No password found.")
+            
+        try:
+            is_valid = checkpw(login_data.password.encode('utf-8'), stored_password.encode('utf-8'))
+        except Exception:
+            # Fallback for plain text if testing (NOT for production)
+            is_valid = (login_data.password == stored_password)
+            
+        if not is_valid:
+            raise HTTPException(status_code=401, detail="Invalid ID or password")
+        
+        # Create JWT token
+        jwt_token = create_jwt_token(login_data.id, login_data.role)
+        
+        return {
+            'token': jwt_token,
+            'role': login_data.role,
+            'id': login_data.id,
+            'name': user.get('name', 'User'),
+            'email': user.get('email', '')
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Login system error: {str(e)}")
 
 @router.post('/logout')
 async def logout():

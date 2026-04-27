@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './LoginPage.css';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [portal, setPortal] = useState('doctors');
+  const [portal, setPortal] = useState('doctor'); // Sync with backend roles
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -12,46 +13,52 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // Sync portal names with backend roles
+  const portals = [
+    { id: 'doctor', label: 'Doctors', icon: 'medical_services' },
+    { id: 'patient', label: 'Patients', icon: 'person' },
+    { id: 'family', label: 'Family', icon: 'family_restroom' }
+  ];
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+    
+    if (!userId.trim() || !password.trim()) {
+      setError('Please provide both ID and password.');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // Simulate a brief loading state for premium feel
-      await new Promise(resolve => setTimeout(resolve, 800));
+      const response = await axios.post('http://localhost:8000/api/auth/login', {
+        id: userId,
+        password: password,
+        role: portal
+      });
 
-      if (portal === 'doctors') {
-        localStorage.setItem('token', 'sg-doctor-token');
-        localStorage.setItem('role', 'doctor');
-        localStorage.setItem('doctor_id', userId || 'SG-9920-SENT');
-        localStorage.setItem('name', 'Dr. Clinical Sentinel');
-        navigate('/doctor');
-      } else if (portal === 'patients') {
-        localStorage.setItem('token', 'sg-patient-token');
-        localStorage.setItem('role', 'patient');
-        localStorage.setItem('patient_id', userId || '8842');
-        localStorage.setItem('name', 'Patient');
-        navigate('/patient');
-      } else if (portal === 'family') {
-        localStorage.setItem('token', 'sg-family-token');
-        localStorage.setItem('role', 'family');
-        localStorage.setItem('family_id', userId || 'FAM-042');
-        localStorage.setItem('name', 'Family Member');
-        navigate('/family');
-      }
+      const { token, role, name, id } = response.data;
+
+      // Secure storage of clinical session
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', role);
+      localStorage.setItem('name', name);
+      localStorage.setItem(role === 'doctor' ? 'doctor_id' : (role === 'patient' ? 'patient_id' : 'family_id'), id);
+
+      // Routing to specialized terminal
+      navigate(`/${role}`);
+      
     } catch (err) {
-      setError(err.response?.data?.detail || 'Login failed. Please check your credentials.');
+      if (!err.response) {
+        setError('System Offline: Backend server is unreachable on port 8000.');
+      } else {
+        setError(err.response?.data?.detail || 'Authentication failed. Please verify your credentials.');
+      }
     } finally {
       setLoading(false);
     }
   };
-
-  const portals = [
-    { id: 'doctors', label: 'Doctors', icon: 'medical_services' },
-    { id: 'patients', label: 'Patients', icon: 'person' },
-    { id: 'family', label: 'Family', icon: 'family_restroom' }
-  ];
 
   return (
     <div className="login-wrapper">

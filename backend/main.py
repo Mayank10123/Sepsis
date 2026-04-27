@@ -14,9 +14,9 @@ import asyncio
 from groq import Groq
 from datetime import datetime
 
-from .ai_agent import SepsisRiskAgent, monitor_patient
-from .auth import router as auth_router, verify_token
-from .notifications import AlertEngine
+from ai_agent import SepsisRiskAgent, monitor_patient
+from auth import router as auth_router, verify_token
+from notifications import AlertEngine
 
 # Load environment variables
 load_dotenv()
