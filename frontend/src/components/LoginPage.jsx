@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { apiClient } from '../api/client';
 import './LoginPage.css';
 
 export default function LoginPage() {
@@ -32,7 +32,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/login', {
+      const response = await apiClient.post('/api/auth/login', {
         id: userId,
         password: password,
         role: portal
