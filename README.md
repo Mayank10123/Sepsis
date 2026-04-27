@@ -3,6 +3,7 @@
 > AI-powered sepsis risk detection with real-time alerts across doctor, patient, and family dashboards
 
 ## 📋 Table of Contents
+0. [Quick Login](#quick-Login)
 1. [Quick Start](#quick-start)
 2. [Prerequisites](#prerequisites)
 3. [Backend Setup](#backend-setup)
@@ -14,6 +15,12 @@
 9. [Testing & Demo](#testing--demo)
 
 ---
+Demo Credentials:
+Portal	Username / ID	Password	   Profile
+Doctor	doctor@sg.ai	#demo	      Dr. Sarah Miller
+Family	family@sg.ai	#demo	      Chen Family
+Patient	patient@sg.ai	#demo
+
 
 ## 🚀 Quick Start (5 Minutes)
 
