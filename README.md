@@ -15,13 +15,19 @@
 9. [Testing & Demo](#testing--demo)
 
 ---
-```bash
-Demo Credentials:
-Portal	Username / ID	Password   	Profile
-Doctor	doctor@sg.ai	#demo	      Dr. Sarah Miller
-Family	family@sg.ai	#demo	      Chen Family
-Patient	patient@sg.ai	#demo
-```
+## 🛡️ Platinum Demo Credentials
+Access the full clinical ecosystem using these verified demo accounts:
+
+| Portal | Username / Clinical ID | Password | Profile Identity |
+| :--- | :--- | :--- | :--- |
+| **Doctor Dashboard** | `doctor@sg.ai` | `#demo` | Dr. Sarah Miller (Lead ICU) |
+| **Patient Portal** | `patient@sg.ai` | `#demo` | Robert Chen (ICU Bed 402) |
+| **Family Portal** | `family@sg.ai` | `#demo` | Chen Family (Recovery Hub) |
+
+> [!TIP]
+> For real MongoDB Atlas testing, use the ID `PAT001` with password `test123` to view a persistent patient record.
+
+---
 
 
 ## 🚀 Quick Start (5 Minutes)
