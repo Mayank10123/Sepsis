@@ -15,11 +15,13 @@
 9. [Testing & Demo](#testing--demo)
 
 ---
+```bash
 Demo Credentials:
-Portal	Username / ID	Password	   Profile
+Portal	Username / ID	Password   	Profile
 Doctor	doctor@sg.ai	#demo	      Dr. Sarah Miller
 Family	family@sg.ai	#demo	      Chen Family
 Patient	patient@sg.ai	#demo
+```
 
 
 ## 🚀 Quick Start (5 Minutes)
