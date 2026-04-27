@@ -51,7 +51,7 @@ export default function LoginPage() {
       
     } catch (err) {
       if (!err.response) {
-        setError('System Offline: Backend server is unreachable on port 8000.');
+        setError(`System Offline: Backend unreachable at ${apiClient.defaults.baseURL}`);
       } else {
         setError(err.response?.data?.detail || 'Authentication failed. Please verify your credentials.');
       }
