@@ -188,6 +188,10 @@ async def general_login(login_data: LoginRequest):
             jwt_token = create_jwt_token('FAMILY_DEMO', 'family')
             return {'token': jwt_token, 'role': 'family', 'name': 'Chen Family', 'id': 'FAM-042'}
 
+        if login_data.id == 'patient@sg.ai' and login_data.password == '#demo':
+            jwt_token = create_jwt_token('PAT001', 'patient')
+            return {'token': jwt_token, 'role': 'patient', 'name': 'Robert Chen', 'id': 'PAT001'}
+
         database = await get_database()
         
         # Determine collection based on role
