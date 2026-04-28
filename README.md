@@ -25,7 +25,7 @@ Access the full clinical ecosystem using these verified demo accounts:
 | **Family Portal** | `family@sg.ai` | `#demo` | Chen Family (Recovery Hub) |
 
 > [!TIP]
-> For real MongoDB Atlas testing, use the ID `PAT001` with password `test123` to view a persistent patient record.
+> We use real mongoDB and backend server which go to sleep if there are no activity ,hence wait for 60s for bootup.
 
 ---
 
